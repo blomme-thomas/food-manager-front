@@ -2,7 +2,9 @@
 
 Ce repository contient l'application frontend Angular du projet **Food Manager**.
 
-Food Manager est une application web permettant à un utilisateur de gérer ses aliments, ses recettes, ses objectifs nutritionnels, ses programmes alimentaires et ses listes de courses.
+Food Manager est une application web permettant à un utilisateur de gérer ses ingrédients, ses recettes, ses objectifs nutritionnels, ses programmes alimentaires et ses listes de courses.
+
+Le modèle de données de référence est défini dans le repository documentation et repose notamment sur les entités Ingredient, Recipe, ShoppingList, ShoppingListRecipe, Role et Unit.
 
 ---
 
