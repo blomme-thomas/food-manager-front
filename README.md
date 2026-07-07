@@ -60,14 +60,14 @@ L'application frontend doit permettre à l'utilisateur de :
 ```txt
 src/app/
   core/                          # Infrastructure et services singleton de l'application
-    auth/                        # Authentification et gestion des utilisateurs
+    auth/                        # Authentification et gestion des sessions
     config/                      # Configuration globale de l'application
     guards/                      # Protection des routes
     infrastructure/              # Communication avec les systèmes externes
       api/                       # Appels HTTP vers le backend
       interceptors/              # Intercepteurs HTTP (JWT, erreurs, logs...)
       storage/                   # LocalStorage, SessionStorage, IndexedDB...
-    services/                    # Services métier transverses
+    services/                    # Services transverses de l'application
 
   shared/                        # Éléments réutilisables dans toute l'application
     components/                  # Composants UI partagés
@@ -86,9 +86,9 @@ src/app/
     dashboard/                   # Tableau de bord
     foods/                       # Gestion des aliments
     recipes/                     # Gestion des recettes
-    nutrition-goals/             # Objectifs nutritionnels
     meal-plans/                  # Planification des repas
     shopping-lists/              # Listes de courses
+    profile/                     # Profil utilisateur et préférences
 
   app.ts                         # Composant racine de l'application
   app.html                       # Template du composant racine
