@@ -1,0 +1,93 @@
+<header class="app-header">
+  <div class="header-left">
+    <button
+      nz-button
+      nzType="text"
+      nzShape="circle"
+      aria-label="{{ 'HEADER.MENU' | translate }}"
+      (click)="onMenuToggle()"
+    >
+      <nz-icon nzType="menu" nzTheme="outline" />
+    </button>
+
+    <a class="brand" href="/" aria-label="{{ 'HEADER.HOME' | translate }}">
+      <span class="brand-logo">
+        <nz-icon nzType="appstore" nzTheme="outline" />
+      </span>
+
+      <span class="brand-name">{{ 'HEADER.BRAND' | translate }}</span>
+    </a>
+  </div>
+
+  <div class="header-right">
+    <nz-badge [nzCount]="3" [nzOverflowCount]="9">
+      <button
+        nz-button
+        nzType="text"
+        nzShape="circle"
+        aria-label="{{ 'HEADER.NOTIFICATIONS' | translate }}"
+      >
+        <nz-icon nzType="bell" nzTheme="outline" />
+      </button>
+    </nz-badge>
+
+    <a
+      class="profile"
+      nz-dropdown
+      [nzDropdownMenu]="userMenu"
+      nzTrigger="hover"
+      aria-label="{{ 'HEADER.PROFILE' | translate }}"
+    >
+      <nz-avatar nzText="TB" />
+
+      <span class="profile-details">
+        <span class="profile-name">Thomas</span>
+        <span class="profile-role">{{ 'HEADER.ROLE' | translate }}</span>
+      </span>
+
+      <nz-icon nzType="down" nzTheme="outline" />
+    </a>
+
+    <nz-dropdown-menu #userMenu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item>
+          <nz-icon nzType="user" nzTheme="outline" />
+          {{ 'HEADER.PROFILE' | translate }}
+        </li>
+
+        <li nz-menu-item>
+          <nz-icon nzType="setting" nzTheme="outline" />
+          {{ 'HEADER.SETTINGS' | translate }}
+        </li>
+
+        <li nz-menu-item>
+          <div class="lang-switcher">
+            <button
+              nz-button
+              nzType="text"
+              (click)="changeLang('fr')"
+              [class.active]="currentLang === 'fr'"
+            >
+              FR
+            </button>
+            <button
+              nz-button
+              nzType="text"
+              (click)="changeLang('en')"
+              [class.active]="currentLang === 'en'"
+            >
+              EN
+            </button>
+          </div>
+        </li>
+
+        <li nz-menu-divider></li>
+
+        <li nz-menu-item nzDanger>
+          <nz-icon nzType="logout" nzTheme="outline" />
+          {{ 'HEADER.LOGOUT' | translate }}
+        </li>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
+</header>

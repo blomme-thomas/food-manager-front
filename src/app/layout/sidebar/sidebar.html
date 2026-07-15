@@ -1,0 +1,18 @@
+<ul nz-menu nzMode="inline" [nzInlineCollapsed]="!isOpen()">
+  <li nz-menu-item nzMatchRouter routerLink="/dashboard">
+    <nz-icon nzType="dashboard" nzTheme="outline" />
+    <span>{{ 'SIDEBAR.DASHBOARD' | translate }}</span>
+  </li>
+  <li nz-menu-item nzMatchRouter routerLink="/aliments">
+    <nz-icon nzType="shopping-cart" nzTheme="outline" />
+    <span>{{ 'SIDEBAR.ALIMENTS' | translate }}</span>
+  </li>
+  <li nz-menu-item nzMatchRouter routerLink="/recettes">
+    <nz-icon nzType="read" nzTheme="outline" />
+    <span>{{ 'SIDEBAR.RECETTES' | translate }}</span>
+  </li>
+  <li nz-menu-item nzMatchRouter routerLink="/planning">
+    <nz-icon nzType="calendar" nzTheme="outline" />
+    <span>{{ 'SIDEBAR.PLANNING' | translate }}</span>
+  </li>
+</ul>
