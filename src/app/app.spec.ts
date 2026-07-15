@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+
 import { App } from './app';
+import { TranslateService } from '@ngx-translate/core';
+import { MockTranslateService } from './testing/mock-translate.service';
 
 describe('App', () => {
   let fixture: ComponentFixture<App>;
@@ -8,6 +12,7 @@ describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
+      providers: [provideRouter([]), { provide: TranslateService, useClass: MockTranslateService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(App);
