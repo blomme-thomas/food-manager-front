@@ -32,4 +32,13 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('@features/errors/errors.routes').then(({ ERRORS_ROUTES }) => ERRORS_ROUTES),
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+  },
 ];
