@@ -18,5 +18,25 @@
   "FOOTER": {
     "COPYRIGHT": "© {{ year }} Food Manager. Tous droits réservés.",
     "VERSION": "Version"
+  },
+  "ERRORS": {
+    "GENERIC_TITLE": "ERREUR",
+    "GENERIC_MESSAGE": "UNE ERREUR EST SURVENUE.",
+    "BACK_HOME": "RETOUR À L'ACCUEIL",
+    "BACK_DASHBOARD": "RETOUR AU TABLEAU DE BORD",
+    "GO_BACK": "RETOUR",
+    "LABEL": "ERREUR",
+
+    "403": {
+      "TITLE": "403 - INTERDIT",
+      "MESSAGE": "VOUS N'AVEZ PAS LA PERMISSION D'ACCÉDER À CETTE RESSOURCE.",
+      "ILLUSTRATION_LABEL": "ICONE DE VERROUILLAGE"
+    },
+
+    "404": {
+      "TITLE": "404 - INTROUVABLE",
+      "MESSAGE": "LA PAGE DEMANDÉE EST INTROUVABLE.",
+      "ILLUSTRATION_LABEL": "ICONE DE QUESTION"
+    }
   }
 }

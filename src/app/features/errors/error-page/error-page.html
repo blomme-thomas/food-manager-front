@@ -1,0 +1,66 @@
+<main class="error-page" [class]="'error-page error-page--' + variant()">
+  <section class="error-card">
+    <div class="error-card__content">
+      <div class="error-card__code" aria-hidden="true">
+        {{ code() }}
+      </div>
+
+      <p class="error-card__eyebrow">{{ 'ERRORS.LABEL' | translate }}</p>
+
+      <h1 class="error-card__title">
+        @if (code()) {
+          {{ (titleKey() | translate).replace(code() + ' - ', '') }}
+        } @else {
+          {{ titleKey() | translate }}
+        }
+      </h1>
+
+      <p class="error-card__description">{{ descriptionKey() | translate }}</p>
+
+      <div class="error-card__actions">
+        <a class="error-card__button error-card__button--primary" routerLink="/dashboard">
+          <span aria-hidden="true">←</span>
+          {{ 'ERRORS.BACK_DASHBOARD' | translate }}
+        </a>
+
+        <button
+          class="error-card__button error-card__button--secondary"
+          type="button"
+          (click)="goBack()"
+        >
+          {{ 'ERRORS.GO_BACK' | translate }}
+        </button>
+      </div>
+    </div>
+
+    <div class="error-card__visual" aria-hidden="true">
+      <div class="illustration">
+        <span class="illustration__bubble illustration__bubble--one"></span>
+        <span class="illustration__bubble illustration__bubble--two"></span>
+
+        @if (variant() === 'not-found') {
+          <div class="plate">
+            <div class="plate__inner">
+              <span class="plate__question-mark">?</span>
+            </div>
+          </div>
+
+          <div class="cutlery">
+            <span class="cutlery__fork"></span>
+            <span class="cutlery__knife"></span>
+          </div>
+        } @else {
+          <div class="lock">
+            <div class="lock__shackle"></div>
+
+            <div class="lock__body">
+              <span class="lock__keyhole"></span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <span class="visually-hidden">{{ illustrationLabelKey() | translate }}</span>
+    </div>
+  </section>
+</main>
