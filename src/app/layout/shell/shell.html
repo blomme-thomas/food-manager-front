@@ -1,0 +1,24 @@
+<nz-layout class="app-layout">
+  <app-header (menuToggle)="onMenuToggle()"></app-header>
+  <nz-layout class="app-body">
+    <nz-sider
+      class="app-sider"
+      nzTheme="light"
+      nzCollapsible
+      [nzTrigger]="null"
+      [nzCollapsed]="!sidebarOpen()"
+      [nzWidth]="250"
+      [nzCollapsedWidth]="64"
+    >
+      <app-sidebar [isOpen]="sidebarOpen()"></app-sidebar>
+    </nz-sider>
+    <nz-layout class="app-main">
+      <nz-content class="app-content">
+        <router-outlet></router-outlet>
+      </nz-content>
+      <nz-footer class="app-footer-wrapper">
+        <app-footer></app-footer>
+      </nz-footer>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

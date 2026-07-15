@@ -1,0 +1,22 @@
+{
+  "HEADER": {
+    "MENU": "Open main menu",
+    "HOME": "Food Manager home",
+    "NOTIFICATIONS": "Show notifications",
+    "PROFILE": "My profile",
+    "SETTINGS": "Settings",
+    "LOGOUT": "Logout",
+    "BRAND": "Food Manager",
+    "ROLE": "User"
+  },
+  "SIDEBAR": {
+    "DASHBOARD": "Dashboard",
+    "ALIMENTS": "Food items",
+    "RECETTES": "Recipes",
+    "PLANNING": "Planning"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "© {{ year }} Food Manager. All rights reserved.",
+    "VERSION": "Version"
+  }
+}

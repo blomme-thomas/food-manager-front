@@ -1,26 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
-import { App } from './app';
+import { Shell } from './shell';
 import { TranslateService } from '@ngx-translate/core';
-import { MockTranslateService } from './testing/mock-translate.service';
+import { MockTranslateService } from '../../testing/mock-translate.service';
 
-describe('App', () => {
-  let fixture: ComponentFixture<App>;
-  let component: App;
+describe('Shell', () => {
+  let component: Shell;
+  let fixture: ComponentFixture<Shell>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App],
+      imports: [Shell],
       providers: [provideRouter([]), { provide: TranslateService, useClass: MockTranslateService }],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(App);
+    fixture = TestBed.createComponent(Shell);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
-  it('should create the app', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
