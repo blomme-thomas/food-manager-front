@@ -20,9 +20,9 @@ Définir un workflow Git commun pour les repositories **food-manager-front** et 
 ### Branches temporaires
 
 ```txt
-feature/US-<CODE>-<nom-feature>
-fix/US-<CODE>-<nom-correctif>
-tech/US-<CODE>-<nom-technique>
+feature/<nom-feature>
+fix/<nom-correctif>
+tech/<nom-technique>
 release/vX.Y.Z
 hotfix/<nom-hotfix>
 ```
@@ -30,15 +30,13 @@ hotfix/<nom-hotfix>
 Exemples :
 
 ```txt
-feature/US-FOOD-001-create-food
-feature/US-RECIPE-001-create-recipe
-fix/US-FOOD-004-fix-ingredient-update
-tech/US-DATA-001-setup-prisma
+feature/create-food
+feature/create-recipe
+fix/login
+tech/setup-prisma
 release/v1.0.0
 hotfix/jwt-expiration
 ```
-
-> Quand une User Story existe, son identifiant doit être inclus dans le nom de la branche pour garder un traçage simple entre le ticket et le développement.
 
 ---
 
