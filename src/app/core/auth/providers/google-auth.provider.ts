@@ -12,9 +12,13 @@ export class GoogleAuthProvider implements ExternalAuthProvider {
   public authenticate(): Observable<ExternalAuthResult> {
     return new Observable<ExternalAuthResult>((subscriber) => {
       try {
-        google.accounts.id.initialize({
+        if (!window.google) {
+          throw new Error('Google Identity Services is unavailable.');
+        }
+
+        window.google.accounts.id.initialize({
           client_id: environment.googleClientId,
-          callback: (response: google.accounts.id.CredentialResponse) => {
+          callback: (response: { credential: string }) => {
             if (!response.credential) {
               subscriber.error(new Error('Google did not return an ID token.'));
               return;
@@ -29,7 +33,7 @@ export class GoogleAuthProvider implements ExternalAuthProvider {
           },
         });
 
-        google.accounts.id.prompt();
+        window.google.accounts.id.prompt();
       } catch (error: unknown) {
         subscriber.error(error);
       }
