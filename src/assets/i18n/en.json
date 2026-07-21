@@ -1,4 +1,21 @@
 {
+  "AUTH": {
+    "BRAND": "Food Manager",
+    "TITLE": "Welcome",
+    "DESCRIPTION": "Sign in to manage your food items, recipes, and meal planning.",
+    "PROVIDERS": {
+      "GOOGLE": "Continue with Google",
+      "MICROSOFT": "Continue with Microsoft"
+    },
+    "LOADING": "Signing in…",
+    "LEGAL": "By continuing, you agree to Food Manager's terms of use and privacy policy.",
+    "ERRORS": {
+      "GENERIC": "Sign-in failed. Please try again.",
+      "PROVIDER_UNAVAILABLE": "This authentication provider is currently unavailable.",
+      "GOOGLE": "Sign-in with Google failed.",
+      "MICROSOFT": "Sign-in with Microsoft failed."
+    }
+  },
   "HEADER": {
     "MENU": "Open main menu",
     "HOME": "Food Manager home",

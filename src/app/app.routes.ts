@@ -3,6 +3,15 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'login',
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('@features/auth/auth.routes').then((r) => r.AUTH_ROUTES),
+  },
+  {
+    path: '',
     loadComponent: () => import('@layout/shell/shell').then((m) => m.Shell),
     children: [
       {
