@@ -1,4 +1,21 @@
 {
+  "AUTH": {
+    "BRAND": "Food Manager",
+    "TITLE": "Bienvenue",
+    "DESCRIPTION": "Connectez-vous pour gérer vos aliments, vos recettes et votre planning.",
+    "PROVIDERS": {
+      "GOOGLE": "Continuer avec Google",
+      "MICROSOFT": "Continuer avec Microsoft"
+    },
+    "LOADING": "Connexion en cours…",
+    "LEGAL": "En continuant, vous acceptez les conditions d’utilisation et la politique de confidentialité de Food Manager.",
+    "ERRORS": {
+      "GENERIC": "La connexion a échoué. Veuillez réessayer.",
+      "PROVIDER_UNAVAILABLE": "Ce fournisseur d’authentification est actuellement indisponible.",
+      "GOOGLE": "La connexion avec Google a échoué.",
+      "MICROSOFT": "La connexion avec Microsoft a échoué."
+    }
+  },
   "HEADER": {
     "MENU": "Ouvrir le menu principal",
     "HOME": "Accueil Food Manager",

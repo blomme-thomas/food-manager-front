@@ -1,0 +1,92 @@
+<main class="auth-page">
+  <section class="auth-card">
+    <div class="auth-card__content">
+      <div class="auth-card__brand" aria-hidden="true">FM</div>
+
+      <p class="auth-card__eyebrow">
+        {{ 'AUTH.BRAND' | translate }}
+      </p>
+
+      <h1 class="auth-card__title">
+        {{ 'AUTH.TITLE' | translate }}
+      </h1>
+
+      <p class="auth-card__description">
+        {{ 'AUTH.DESCRIPTION' | translate }}
+      </p>
+
+      <div class="auth-card__providers">
+        <button
+          class="auth-card__provider"
+          type="button"
+          [disabled]="isLoading()"
+          (click)="authenticate(AuthProvider.Google)"
+        >
+          <img src="assets/icons/providers/google.svg" alt="" class="auth-card__provider-icon" />
+
+          <span>
+            {{ 'AUTH.PROVIDERS.GOOGLE' | translate }}
+          </span>
+        </button>
+
+        <button
+          class="auth-card__provider"
+          type="button"
+          [disabled]="isLoading()"
+          (click)="authenticate(AuthProvider.Microsoft)"
+        >
+          <img src="assets/icons/providers/microsoft.svg" alt="" class="auth-card__provider-icon" />
+
+          <span>
+            {{ 'AUTH.PROVIDERS.MICROSOFT' | translate }}
+          </span>
+        </button>
+      </div>
+
+      @if (isLoading()) {
+        <div class="auth-card__status" role="status" aria-live="polite">
+          <span class="auth-card__spinner" aria-hidden="true"></span>
+
+          {{ 'AUTH.LOADING' | translate }}
+        </div>
+      }
+
+      @if (errorMessage(); as message) {
+        <p class="auth-card__error" role="alert">
+          {{ message | translate }}
+        </p>
+      }
+
+      <p class="auth-card__legal">
+        {{ 'AUTH.LEGAL' | translate }}
+      </p>
+    </div>
+
+    <div class="auth-card__visual" aria-hidden="true">
+      <div class="auth-illustration">
+        <span class="auth-illustration__bubble auth-illustration__bubble--one"></span>
+
+        <span class="auth-illustration__bubble auth-illustration__bubble--two"></span>
+
+        <div class="auth-illustration__plate">
+          <div class="auth-illustration__plate-inner">
+            <div class="auth-illustration__leaf">
+              <span class="auth-illustration__leaf-line"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-illustration__cutlery">
+          <span class="auth-illustration__fork"></span>
+          <span class="auth-illustration__knife"></span>
+        </div>
+
+        <div class="auth-illustration__identity">
+          <span class="auth-illustration__identity-head"></span>
+          <span class="auth-illustration__identity-body"></span>
+          <span class="auth-illustration__identity-check"> ✓ </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
