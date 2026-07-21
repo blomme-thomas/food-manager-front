@@ -59,42 +59,33 @@ L'application frontend doit permettre à l'utilisateur de :
 
 ```txt
 src/app/
-  core/                          # Infrastructure et services singleton de l'application
-    auth/                        # Authentification et gestion des sessions
-    config/                      # Configuration globale de l'application
-    guards/                      # Protection des routes
-    infrastructure/              # Communication avec les systèmes externes
-      api/                       # Appels HTTP vers le backend
-      interceptors/              # Intercepteurs HTTP (JWT, erreurs, logs...)
-      storage/                   # LocalStorage, SessionStorage, IndexedDB...
-    services/                    # Services transverses de l'application
+  core/
+    auth/
+    guards/
+    interceptors/
+    api/
+    config/
 
-  shared/                        # Éléments réutilisables dans toute l'application
-    components/                  # Composants UI partagés
-    directives/                  # Directives personnalisées
-    pipes/                       # Pipes personnalisés
-    models/                      # Modèles et interfaces partagés
-    utils/                       # Fonctions utilitaires communes
+  shared/
+    components/
+    pipes/
+    directives/
+    models/
 
-  layout/                        # Structure visuelle de l'application
-    shell/                       # Layout principal de l'application
-    header/                      # En-tête de l'application
-    sidebar/                     # Barre de navigation latérale
-    footer/                      # Pied de page de l'application
+  layout/
+    shell/
+    sidebar/
+    header/
 
-  features/                      # Fonctionnalités métier de l'application
-    dashboard/                   # Tableau de bord
-    foods/                       # Gestion des aliments
-    recipes/                     # Gestion des recettes
-    meal-plans/                  # Planification des repas
-    shopping-lists/              # Listes de courses
-    profile/                     # Profil utilisateur et préférences
+  features/
+    dashboard/
+    foods/
+    recipes/
+    nutrition-goals/
+    meal-plans/
+    shopping-lists/
 
-  app.ts                         # Composant racine de l'application
-  app.html                       # Template du composant racine
-  app.scss                       # Styles du composant racine
-  app.config.ts                  # Configuration Angular (providers)
-  app.routes.ts                  # Déclaration des routes de l'application
+  app.routes.ts
 ```
 
 ---
@@ -203,7 +194,7 @@ Exemple attendu :
 ```ts
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:3000',
+  apiBaseUrl: 'http://localhost:3000'
 };
 ```
 

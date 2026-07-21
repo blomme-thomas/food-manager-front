@@ -1,9 +1,0 @@
-node_modules
-dist
-coverage
-.angular
-
-package-lock.json
-
-*.min.js
-*.min.css
