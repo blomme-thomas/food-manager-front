@@ -9,11 +9,20 @@
     },
     "LOADING": "Signing in…",
     "LEGAL": "By continuing, you agree to Food Manager's terms of use and privacy policy.",
+    "REGISTER": {
+      "TITLE": "Complete your registration",
+      "DISPLAY_NAME": "Display name",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name",
+      "SUBMIT": "Sign up",
+      "CANCEL": "Cancel"
+    },
     "ERRORS": {
       "GENERIC": "Sign-in failed. Please try again.",
       "PROVIDER_UNAVAILABLE": "This authentication provider is currently unavailable.",
       "GOOGLE": "Sign-in with Google failed.",
-      "MICROSOFT": "Sign-in with Microsoft failed."
+      "MICROSOFT": "Sign-in with Microsoft failed.",
+      "MISSING_FIELDS": "All fields are required."
     }
   },
   "HEADER": {

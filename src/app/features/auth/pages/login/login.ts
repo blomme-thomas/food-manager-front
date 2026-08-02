@@ -3,6 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { AuthProvider } from '@core/auth/models/auth-provider.model';
 import { AuthFacadeService } from '@core/auth/services/auth-facade.service';
+import { AuthenticateExternalIdentityResponse } from '@core/auth/models/responses/authenticate-external-identity.response';
 import { TranslatePipe } from '@ngx-translate/core';
 import { finalize } from 'rxjs';
 
@@ -27,7 +28,7 @@ export class Login {
     this.errorMessage.set(null);
 
     this.authFacade
-      .authenticate(provider)
+      .authenticateExternal(provider)
       .pipe(
         finalize((): void => {
           this.isLoading.set(false);
@@ -35,13 +36,17 @@ export class Login {
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe({
-        next: (result): void => {
-          console.log(result);
-          void this.router.navigate(['/dashboard']);
+        next: (result: AuthenticateExternalIdentityResponse): void => {
+          if (result.registrationRequired) {
+            void this.router.navigate(['/login/register'], {
+              state: { authResult: result },
+            });
+          } else {
+            void this.router.navigate(['/dashboard']);
+          }
         },
         error: (error: unknown): void => {
           console.error(error);
-
           this.errorMessage.set('AUTH.ERRORS.GENERIC');
         },
       });

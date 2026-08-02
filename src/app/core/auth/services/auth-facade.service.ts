@@ -2,9 +2,11 @@ import { Injectable, inject } from '@angular/core';
 import { map, Observable, switchMap } from 'rxjs';
 import { AuthProvider } from '../models/auth-provider.model';
 import { ExternalAuthResult } from '../models/external-auth-result.model';
+import { AuthenticateExternalIdentityResponse } from '../models/responses/authenticate-external-identity.response';
+import { RegisterExternalUserRequest } from '../models/requests/register-external-user.request';
+import { RegisterExternalUserResponse } from '../models/responses/register-external-user.response';
 import { AuthProviderRegistryService } from './auth-provider-registry.service';
 import { AuthRequest } from '../models/requests/auth-request.model';
-import { AuthSession } from '../models/responses/auth-session.model';
 import { AuthApiService } from './auth-api.service';
 
 @Injectable({
@@ -21,16 +23,24 @@ export class AuthFacadeService {
     };
   }
 
-  public authenticate(provider: AuthProvider): Observable<AuthSession> {
+  public authenticateExternal(
+    provider: AuthProvider,
+  ): Observable<AuthenticateExternalIdentityResponse> {
     return this.authProviderRegistry
       .get(provider)
       .authenticate()
       .pipe(
         map((result: ExternalAuthResult): AuthRequest => this.toAuthRequest(result)),
-        switchMap((request: AuthRequest): Observable<AuthSession> => {
+        switchMap((request: AuthRequest): Observable<AuthenticateExternalIdentityResponse> => {
           console.log('Sending authentication request to API:', request);
-          return this.authApi.authenticate(request);
+          return this.authApi.authenticateExternal(request);
         }),
       );
+  }
+
+  public registerExternalUser(
+    request: RegisterExternalUserRequest,
+  ): Observable<RegisterExternalUserResponse> {
+    return this.authApi.registerExternalUser(request);
   }
 }
