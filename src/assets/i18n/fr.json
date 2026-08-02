@@ -9,11 +9,20 @@
     },
     "LOADING": "Connexion en cours…",
     "LEGAL": "En continuant, vous acceptez les conditions d’utilisation et la politique de confidentialité de Food Manager.",
+    "REGISTER": {
+      "TITLE": "Compléter votre inscription",
+      "DISPLAY_NAME": "Nom d'affichage",
+      "FIRST_NAME": "Prénom",
+      "LAST_NAME": "Nom",
+      "SUBMIT": "S'inscrire",
+      "CANCEL": "Annuler"
+    },
     "ERRORS": {
       "GENERIC": "La connexion a échoué. Veuillez réessayer.",
-      "PROVIDER_UNAVAILABLE": "Ce fournisseur d’authentification est actuellement indisponible.",
+      "PROVIDER_UNAVAILABLE": "Ce fournisseur d'authentification est actuellement indisponible.",
       "GOOGLE": "La connexion avec Google a échoué.",
-      "MICROSOFT": "La connexion avec Microsoft a échoué."
+      "MICROSOFT": "La connexion avec Microsoft a échoué.",
+      "MISSING_FIELDS": "Tous les champs sont obligatoires."
     }
   },
   "HEADER": {

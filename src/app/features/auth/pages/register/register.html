@@ -1,0 +1,133 @@
+<main class="auth-page">
+  <section class="auth-card">
+    <div class="auth-card__content">
+      <div class="auth-card__brand" aria-hidden="true">FM</div>
+
+      <p class="auth-card__eyebrow">
+        {{ 'AUTH.BRAND' | translate }}
+      </p>
+
+      <h1 class="auth-card__title">
+        {{ 'AUTH.REGISTER.TITLE' | translate }}
+      </h1>
+
+      <p class="auth-card__description">
+        {{ 'AUTH.REGISTER.DESCRIPTION' | translate }}
+      </p>
+
+      @if (authResult(); as result) {
+        <div class="auth-card__user-info">
+          <p class="auth-card__user-email">
+            {{ result.email }}
+          </p>
+        </div>
+      }
+
+      <form class="auth-card__form" (ngSubmit)="register()">
+        <div class="auth-card__form-group">
+          <label for="displayName" class="auth-card__label">
+            {{ 'AUTH.REGISTER.DISPLAY_NAME' | translate }}
+          </label>
+          <input
+            id="displayName"
+            type="text"
+            class="auth-card__input"
+            [value]="displayName()"
+            (change)="displayName.set($event.target.value)"
+            required
+            maxlength="150"
+          />
+        </div>
+
+        <div class="auth-card__form-group">
+          <label for="firstName" class="auth-card__label">
+            {{ 'AUTH.REGISTER.FIRST_NAME' | translate }}
+          </label>
+          <input
+            id="firstName"
+            type="text"
+            class="auth-card__input"
+            [value]="firstName()"
+            (change)="firstName.set($event.target.value)"
+            required
+            maxlength="100"
+          />
+        </div>
+
+        <div class="auth-card__form-group">
+          <label for="lastName" class="auth-card__label">
+            {{ 'AUTH.REGISTER.LAST_NAME' | translate }}
+          </label>
+          <input
+            id="lastName"
+            type="text"
+            class="auth-card__input"
+            [value]="lastName()"
+            (change)="lastName.set($event.target.value)"
+            required
+            maxlength="100"
+          />
+        </div>
+
+        <div class="auth-card__actions">
+          <button
+            type="submit"
+            class="auth-card__button auth-card__button--primary"
+            [disabled]="isLoading()"
+          >
+            @if (isLoading()) {
+              <span class="auth-card__spinner" aria-hidden="true"></span>
+            }
+            {{ 'AUTH.REGISTER.SUBMIT' | translate }}
+          </button>
+
+          <button
+            type="button"
+            class="auth-card__button auth-card__button--secondary"
+            (click)="cancel()"
+            [disabled]="isLoading()"
+          >
+            {{ 'AUTH.REGISTER.CANCEL' | translate }}
+          </button>
+        </div>
+      </form>
+
+      @if (errorMessage(); as message) {
+        <p class="auth-card__error" role="alert">
+          {{ message | translate }}
+        </p>
+      }
+
+      <p class="auth-card__legal">
+        {{ 'AUTH.LEGAL' | translate }}
+      </p>
+    </div>
+
+    <div class="auth-card__visual" aria-hidden="true">
+      <div class="auth-illustration">
+        <span class="auth-illustration__bubble auth-illustration__bubble--one"></span>
+
+        <span class="auth-illustration__bubble auth-illustration__bubble--two"></span>
+
+        <div class="auth-illustration__plate">
+          <div class="auth-illustration__plate-inner">
+            <div class="auth-illustration__leaf">
+              <span class="auth-illustration__leaf-line"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-illustration__cutlery">
+          <span class="auth-illustration__fork"></span>
+          <span class="auth-illustration__knife"></span>
+        </div>
+
+        <div class="auth-illustration__identity">
+          <span class="auth-illustration__identity-head"></span>
+          <span class="auth-illustration__identity-body"></span>
+          <span class="auth-illustration__identity-check"> ✓ </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
