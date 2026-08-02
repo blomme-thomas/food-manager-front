@@ -13,7 +13,7 @@ describe('Login', () => {
   let fixture: ComponentFixture<Login>;
 
   let authFacadeMock: {
-    authenticate: ReturnType<typeof vi.fn>;
+    authenticateExternal: ReturnType<typeof vi.fn>;
   };
 
   let routerMock: {
@@ -22,7 +22,7 @@ describe('Login', () => {
 
   beforeEach(async () => {
     authFacadeMock = {
-      authenticate: vi.fn(),
+      authenticateExternal: vi.fn(),
     };
 
     routerMock = {
@@ -56,12 +56,12 @@ describe('Login', () => {
   it('should authenticate with the selected provider', () => {
     const authentication$ = new Subject<unknown>();
 
-    authFacadeMock.authenticate.mockReturnValue(authentication$.asObservable());
+    authFacadeMock.authenticateExternal.mockReturnValue(authentication$.asObservable());
 
     component.authenticate(AuthProvider.Google);
 
-    expect(authFacadeMock.authenticate).toHaveBeenCalledOnce();
-    expect(authFacadeMock.authenticate).toHaveBeenCalledWith(AuthProvider.Google);
+    expect(authFacadeMock.authenticateExternal).toHaveBeenCalledOnce();
+    expect(authFacadeMock.authenticateExternal).toHaveBeenCalledWith(AuthProvider.Google);
 
     authentication$.complete();
   });
@@ -69,7 +69,7 @@ describe('Login', () => {
   it('should enable loading while authentication is in progress', () => {
     const authentication$ = new Subject<unknown>();
 
-    authFacadeMock.authenticate.mockReturnValue(authentication$.asObservable());
+    authFacadeMock.authenticateExternal.mockReturnValue(authentication$.asObservable());
 
     component.authenticate(AuthProvider.Google);
 
@@ -81,7 +81,7 @@ describe('Login', () => {
   it('should clear the previous error before authentication', () => {
     const authentication$ = new Subject<unknown>();
 
-    authFacadeMock.authenticate.mockReturnValue(authentication$.asObservable());
+    authFacadeMock.authenticateExternal.mockReturnValue(authentication$.asObservable());
 
     component.errorMessage.set('AUTH.ERRORS.GENERIC');
 
@@ -95,7 +95,7 @@ describe('Login', () => {
   it('should navigate to the dashboard after successful authentication', () => {
     const authentication$ = new Subject<unknown>();
 
-    authFacadeMock.authenticate.mockReturnValue(authentication$.asObservable());
+    authFacadeMock.authenticateExternal.mockReturnValue(authentication$.asObservable());
 
     vi.spyOn(console, 'log').mockImplementation(() => undefined);
 
@@ -115,7 +115,7 @@ describe('Login', () => {
   it('should disable loading after successful authentication', () => {
     const authentication$ = new Subject<unknown>();
 
-    authFacadeMock.authenticate.mockReturnValue(authentication$.asObservable());
+    authFacadeMock.authenticateExternal.mockReturnValue(authentication$.asObservable());
 
     vi.spyOn(console, 'log').mockImplementation(() => undefined);
 
@@ -132,7 +132,7 @@ describe('Login', () => {
   it('should display a generic error when authentication fails', () => {
     const authenticationError = new Error('Authentication failed');
 
-    authFacadeMock.authenticate.mockReturnValue(throwError(() => authenticationError));
+    authFacadeMock.authenticateExternal.mockReturnValue(throwError(() => authenticationError));
 
     vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
@@ -142,7 +142,7 @@ describe('Login', () => {
   });
 
   it('should disable loading when authentication fails', () => {
-    authFacadeMock.authenticate.mockReturnValue(
+    authFacadeMock.authenticateExternal.mockReturnValue(
       throwError(() => new Error('Authentication failed')),
     );
 
@@ -154,7 +154,7 @@ describe('Login', () => {
   });
 
   it('should not navigate when authentication fails', () => {
-    authFacadeMock.authenticate.mockReturnValue(
+    authFacadeMock.authenticateExternal.mockReturnValue(
       throwError(() => new Error('Authentication failed')),
     );
 
