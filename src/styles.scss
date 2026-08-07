@@ -1,1 +1,129 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================
+   GLOBAL VARIABLES & STYLES
+   ============================================ */
+
+/* Color Palette */
+:root {
+  /* Primary Accent (Green) */
+  --accent: #4f7c61;
+  --accent-light: #e7f1ea;
+  --accent-dark: #31543e;
+
+  /* Login Accent (Blue) */
+  --accent-login: #4a7ba7;
+  --accent-login-light: #e8f0f8;
+  --accent-login-dark: #2d4a63;
+
+  /* Error Accent (Red) */
+  --accent-error: #b25d46;
+  --accent-error-light: #f8e9e4;
+  --accent-error-dark: #773a2c;
+
+  /* Text Colors */
+  --text-primary: #1d2922;
+  --text-secondary: #667169;
+  --text-dark: #344039;
+  --text-muted: #7b857f;
+
+  /* Background Colors */
+  --bg-light: #f6f8f6;
+  --bg-white: #ffffff;
+  --bg-light-secondary: #fbfcfb;
+  --bg-light-tertiary: #f4f6f5;
+
+  /* Border Colors */
+  --border-color: #d9e0dc;
+
+  /* Translucent */
+  --white-translucent: rgb(255 255 255 / 92%);
+}
+
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   ============================================ */
+
+:host {
+  display: block;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.page {
+  padding: 1.5rem;
+}
+
+/* ============================================
+   MIXINS & REUSABLE PATTERNS
+   ============================================ */
+
+@mixin blur-backdrop {
+  backdrop-filter: blur(12px);
+}
+
+@mixin transition-smooth {
+  transition:
+    background-color 300ms ease,
+    box-shadow 300ms ease,
+    color 160ms ease;
+}
+
+@mixin gradient-bg {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      color-mix(in srgb, var(--accent) 8%, transparent),
+      transparent 35%
+    ),
+    var(--bg-light);
+}
+
+@mixin gradient-bg-login {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      color-mix(in srgb, var(--accent-login) 10%, transparent),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      color-mix(in srgb, var(--accent-login) 8%, transparent),
+      transparent 35%
+    ),
+    var(--bg-light);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card-shadow {
+  box-shadow:
+    0 24px 70px color-mix(in srgb, var(--text-primary) 12%, transparent),
+    0 4px 18px color-mix(in srgb, var(--text-primary) 6%, transparent);
+}
+
+@mixin glass-effect {
+  background: var(--white-translucent);
+  border: 1px solid color-mix(in srgb, var(--text-primary) 8%, transparent);
+  border-radius: 2rem;
+  @include blur-backdrop;
+  @include card-shadow;
+}
+
+/* Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

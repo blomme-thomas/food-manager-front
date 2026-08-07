@@ -1,0 +1,27 @@
+<nz-form-item>
+  <nz-form-label [nzRequired]="false" [nzNoColon]="true">
+    {{ label }}
+  </nz-form-label>
+  <nz-form-control
+    [nzErrorTip]="hasError ? errorMessage : undefined"
+    [nzValidateStatus]="hasError ? 'error' : 'success'"
+  >
+    <nz-select
+      [formControl]="formControl"
+      [nzDisabled]="disabled"
+      [nzPlaceHolder]="placeholder"
+      [nzMode]="multiple ? 'multiple' : 'default'"
+      [nzMaxTagCount]="2"
+    >
+      @for (option of options; track option.value) {
+        <nz-option
+          [nzValue]="option.value"
+          [nzLabel]="language === 'fr' ? option.label.FR : option.label.EN"
+        ></nz-option>
+      }
+    </nz-select>
+    @if (hint && !hasError) {
+      <small class="form-hint form-hint--italic">{{ hint }}</small>
+    }
+  </nz-form-control>
+</nz-form-item>

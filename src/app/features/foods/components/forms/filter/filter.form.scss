@@ -1,0 +1,13 @@
+::ng-deep nz-collapse-panel {
+  background: var(--accent);
+
+  .ant-collapse-header {
+    color: var(--bg-white) !important;
+  }
+}
+
+::ng-deep .ant-collapse {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: none;
+}

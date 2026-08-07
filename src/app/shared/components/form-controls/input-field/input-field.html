@@ -1,0 +1,14 @@
+<nz-form-item>
+  <nz-form-label [nzRequired]="required" [nzNoColon]="true">
+    {{ label }}
+  </nz-form-label>
+  <nz-form-control
+    [nzErrorTip]="hasError ? errorText : undefined"
+    [nzValidateStatus]="hasError ? 'error' : 'success'"
+  >
+    <input nz-input [placeholder]="placeholder" [disabled]="disabled" [formControl]="formControl" />
+    @if (hint && !hasError) {
+      <small class="form-hint form-hint--italic">{{ hint }}</small>
+    }
+  </nz-form-control>
+</nz-form-item>

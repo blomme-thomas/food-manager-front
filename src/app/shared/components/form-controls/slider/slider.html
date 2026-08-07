@@ -1,0 +1,24 @@
+<div class="slider-container">
+  <nz-form-label [nzNoColon]="true">
+    {{ label }}
+  </nz-form-label>
+  <div class="slider-wrapper">
+    <nz-slider
+      [formControl]="formControl"
+      [nzMin]="min"
+      [nzMax]="max"
+      [nzStep]="step"
+      [nzRange]="true"
+      [nzDisabled]="disabled"
+    ></nz-slider>
+  </div>
+  <div class="slider-values">
+    <span class="slider-value-min">
+      {{ formControl.value ? formControl.value[0] : min }}{{ unit ? ' ' + unit : '' }}
+    </span>
+    <span class="slider-separator">-</span>
+    <span class="slider-value-max">
+      {{ formControl.value ? formControl.value[1] : max }}{{ unit ? ' ' + unit : '' }}
+    </span>
+  </div>
+</div>

@@ -8,8 +8,11 @@
   padding: 0 1.5rem;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #f0f0f0;
-  background: #ffffff;
+  background: var(--accent-light);
+  backdrop-filter: blur(12px);
+  transition:
+    background-color 300ms ease,
+    box-shadow 300ms ease;
 }
 
 .header-left,
@@ -32,6 +35,11 @@
   gap: 0.75rem;
   color: inherit;
   text-decoration: none;
+  transition: color 160ms ease;
+
+  &:hover {
+    color: var(--accent);
+  }
 }
 
 .brand-logo {
@@ -40,14 +48,17 @@
   height: 2.25rem;
   place-items: center;
   border-radius: 0.65rem;
-  background: #1677ff;
-  color: #ffffff;
+  background: var(--accent);
+  color: var(--bg-white);
   font-size: 1.1rem;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: box-shadow 160ms ease;
 }
 
 .brand-name {
   font-size: 1.1rem;
   font-weight: 700;
+  color: var(--text-primary);
 }
 
 .profile {
@@ -55,6 +66,13 @@
   color: inherit;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  transition: background-color 160ms ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--accent) 5%, transparent);
+  }
 }
 
 .profile-details {
@@ -66,10 +84,11 @@
 .profile-name {
   font-size: 0.875rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .profile-role {
-  color: rgba(0, 0, 0, 0.45);
+  color: var(--text-secondary);
   font-size: 0.75rem;
 }
 
@@ -81,7 +100,7 @@
 
 .lang-switcher .active {
   font-weight: 700;
-  color: #1677ff;
+  color: var(--accent);
 }
 
 @media (max-width: 48rem) {
@@ -92,5 +111,12 @@
   .brand-name,
   .profile-details {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .profile {
+    transition: none;
   }
 }

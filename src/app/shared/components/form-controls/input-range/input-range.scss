@@ -1,0 +1,95 @@
+/* ============================================
+   Input Range Component Styles
+   ============================================ */
+
+/* Form Item Container */
+::ng-deep nz-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Form Label */
+::ng-deep nz-form-label {
+  display: block;
+  margin-bottom: 0.2rem;
+  width: 100%;
+  text-align: left;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left !important;
+}
+
+/* Range Input Container */
+.range-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Range Inputs Wrapper */
+.range-inputs-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  /* Range Input Fields */
+  .range-input-field {
+    flex: 1;
+    max-width: 120px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    color: var(--text-primary);
+    background: var(--bg-white);
+    font-size: 0.95rem;
+    transition:
+      border-color 160ms ease,
+      box-shadow 160ms ease;
+
+    &::placeholder {
+      color: var(--text-secondary);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+      background: var(--bg-light);
+    }
+
+    /* Remove spinner for number input */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  /* Separator */
+  .range-separator {
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 0 0.25rem;
+    user-select: none;
+  }
+
+  /* Unit Label */
+  .range-unit {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-left: 0.25rem;
+    white-space: nowrap;
+  }
+}

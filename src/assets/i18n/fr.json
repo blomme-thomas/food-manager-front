@@ -25,6 +25,22 @@
       "MISSING_FIELDS": "Tous les champs sont obligatoires."
     }
   },
+  "FOODS": {
+    "FORM": {
+      "CATEGORIES": "Catégories",
+      "CATEGORY": "Catégorie",
+      "FOOD": "Aliment",
+      "FOOD_NAME": "Nom de l'aliment",
+      "CALORIES_PER100": "Calories",
+      "PROTEIN_PER100": "Protéines",
+      "FAT_PER100": "Lipides",
+      "CARBS_PER100": "Glucides",
+      "FIBER_PER100": "Fibres",
+      "SUGAR_PER100": "Sucres",
+      "SALT_PER100": "Sel",
+      "FILTERS": "Filtres"
+    }
+  },
   "HEADER": {
     "MENU": "Ouvrir le menu principal",
     "HOME": "Accueil Food Manager",

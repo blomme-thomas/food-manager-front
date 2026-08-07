@@ -1,0 +1,73 @@
+/* ============================================
+   Input Field Component Styles
+   ============================================ */
+
+/* Form Item Container */
+::ng-deep nz-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Form Label */
+::ng-deep nz-form-label {
+  display: block;
+  margin-bottom: 0.2rem;
+  width: 100%;
+  text-align: left;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left !important;
+}
+
+/* Form Control */
+::ng-deep nz-form-control {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input Field */
+::ng-deep input[nz-input] {
+  max-width: 300px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  font-size: 0.95rem;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    background: var(--bg-light);
+  }
+}
+
+/* Form Hint */
+.form-hint {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+
+  &--italic {
+    font-style: italic;
+  }
+}

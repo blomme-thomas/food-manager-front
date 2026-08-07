@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { AlimentsComponent } from './aliments.component';
+import { FoodsComponent } from './foods';
 
-describe('AlimentsComponent', () => {
+describe('FoodsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlimentsComponent],
+      imports: [FoodsComponent],
     }).compileComponents();
   });
 
   it('should create the component', () => {
-    const fixture = TestBed.createComponent(AlimentsComponent);
+    const fixture = TestBed.createComponent(FoodsComponent);
     const comp = fixture.componentInstance;
     expect(comp).toBeTruthy();
   });

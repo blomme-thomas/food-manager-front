@@ -7,4 +7,33 @@
   height: 100%;
   padding-top: 0.5rem;
   border-right: 0;
+  background: var(--accent-light);
+  backdrop-filter: blur(12px);
+  transition: background-color 300ms ease;
+
+  li[nz-menu-item] {
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+
+    &:hover {
+      background: color-mix(in srgb, var(--accent) 5%, transparent);
+      color: var(--accent);
+    }
+
+    &.ant-menu-item-selected {
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      color: var(--accent);
+      border-right: 3px solid var(--accent);
+
+      nz-icon {
+        color: var(--accent);
+      }
+    }
+  }
+
+  nz-icon {
+    color: var(--text-secondary);
+    transition: color 160ms ease;
+  }
 }
