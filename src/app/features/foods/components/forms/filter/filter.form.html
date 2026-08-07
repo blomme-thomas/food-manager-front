@@ -1,21 +1,35 @@
 <nz-collapse>
   <nz-collapse-panel [nzHeader]="'FOODS.FORM.FILTERS' | translate" [nzActive]="true">
-    <app-input-field
-      [label]="'FOODS.FORM.FOOD' | translate"
-      [placeholder]="'FOODS.FORM.FOOD_NAME' | translate"
-    ></app-input-field>
-    <app-input-select
-      [options]="categoryOptions"
-      [label]="'FOODS.FORM.CATEGORIES' | translate"
-      [placeholder]="'FOODS.FORM.CATEGORIES' | translate"
-      [multiple]="true"
-    ></app-input-select>
-    <app-slider [label]="'FOODS.FORM.PROTEIN_PER100' | translate"></app-slider>
-    <app-slider [label]="'FOODS.FORM.FAT_PER100' | translate"></app-slider>
-    <app-slider [label]="'FOODS.FORM.CARBS_PER100' | translate"></app-slider>
-    <app-slider [label]="'FOODS.FORM.FIBER_PER100' | translate"></app-slider>
-    <app-slider [label]="'FOODS.FORM.SUGAR_PER100' | translate"></app-slider>
-    <app-slider [label]="'FOODS.FORM.SALT_PER100' | translate"></app-slider>
-    <app-input-range [label]="'FOODS.FORM.CALORIES_PER100' | translate"></app-input-range>
+    <div class="filter-form">
+      <div class="filter-form__section">
+        <div class="filter-form__grid">
+          <app-input-field
+            [label]="'FOODS.FORM.FOOD' | translate"
+            [placeholder]="'FOODS.FORM.FOOD_NAME' | translate"
+          ></app-input-field>
+          <app-input-select
+            [options]="categoryOptions"
+            [label]="'FOODS.FORM.CATEGORIES' | translate"
+            [placeholder]="'FOODS.FORM.CATEGORIES' | translate"
+            [multiple]="true"
+          ></app-input-select>
+        </div>
+      </div>
+
+      <div class="filter-form__section filter-form__section--divided">
+        <h2 class="filter-form__section-title">
+          {{ 'FOODS.FORM.NUTRIENTS_PER100' | translate }}
+        </h2>
+        <div class="filter-form__grid">
+          <app-input-range [label]="'FOODS.FORM.CALORIES_PER100' | translate"></app-input-range>
+          <app-slider [label]="'FOODS.FORM.PROTEIN_PER100' | translate"></app-slider>
+          <app-slider [label]="'FOODS.FORM.FAT_PER100' | translate"></app-slider>
+          <app-slider [label]="'FOODS.FORM.CARBS_PER100' | translate"></app-slider>
+          <app-slider [label]="'FOODS.FORM.FIBER_PER100' | translate"></app-slider>
+          <app-slider [label]="'FOODS.FORM.SUGAR_PER100' | translate"></app-slider>
+          <app-slider [label]="'FOODS.FORM.SALT_PER100' | translate"></app-slider>
+        </div>
+      </div>
+    </div>
   </nz-collapse-panel>
 </nz-collapse>

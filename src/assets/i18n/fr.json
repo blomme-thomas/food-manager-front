@@ -38,7 +38,8 @@
       "FIBER_PER100": "Fibres",
       "SUGAR_PER100": "Sucres",
       "SALT_PER100": "Sel",
-      "FILTERS": "Filtres"
+      "FILTERS": "Filtres",
+    "NUTRIENTS_PER100": "Nutriments (pour 100 g)"
     }
   },
   "HEADER": {

@@ -36,14 +36,22 @@
 
   /* Translucent */
   --white-translucent: rgb(255 255 255 / 92%);
-}
 
-/* ============================================
-   GLOBAL RESET & BASE STYLES
-   ============================================ */
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
 
-:host {
-  display: block;
+  /* Radius Scale */
+  --radius-md: 0.75rem;
+  --radius-lg: 0.85rem;
+  --radius-xl: 2rem;
+
+  /* Elevation */
+  --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
 /* ============================================
@@ -51,7 +59,67 @@
    ============================================ */
 
 .page {
-  padding: 1.5rem;
+  padding: var(--space-lg);
+}
+
+/* ============================================
+   SHARED FORM CONTROLS
+   Owned globally so the four controls under
+   shared/components/form-controls stay in sync.
+   No ::ng-deep here: Angular only strips it from
+   component styles, so in a global sheet the
+   browser would drop the whole rule as invalid.
+   ============================================ */
+
+.app-field {
+  display: block;
+  min-width: 0;
+}
+
+/* Form Item Container */
+.app-field nz-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+/* Form Label */
+.app-field nz-form-label {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--space-2xs);
+  overflow: visible;
+  text-align: left;
+  white-space: normal;
+}
+
+.app-field nz-form-label > label {
+  height: auto;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Form Control */
+.app-field nz-form-control {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+/* Form Hint */
+.app-field .form-hint {
+  display: block;
+  margin-top: var(--space-2xs);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+
+  &--italic {
+    font-style: italic;
+  }
 }
 
 /* ============================================

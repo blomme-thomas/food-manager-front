@@ -14,6 +14,7 @@ import { noop } from 'rxjs';
   templateUrl: './input-field.html',
   styleUrls: ['./input-field.scss'],
   standalone: true,
+  host: { class: 'app-field' },
   imports: [ReactiveFormsModule, NzFormModule, NzInputModule],
   providers: [
     {

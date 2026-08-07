@@ -15,6 +15,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
   templateUrl: './slider.html',
   styleUrls: ['./slider.scss'],
   standalone: true,
+  host: { class: 'app-field' },
   imports: [ReactiveFormsModule, NzFormModule, CommonModule, NzSliderModule],
   providers: [
     {

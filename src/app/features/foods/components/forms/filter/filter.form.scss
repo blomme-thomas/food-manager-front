@@ -1,13 +1,66 @@
-::ng-deep nz-collapse-panel {
+/* ============================================
+   Filter Form Styles
+   ============================================ */
+
+/* Collapse Shell */
+:host ::ng-deep .ant-collapse {
+  overflow: hidden;
+  border: none;
+  border-radius: var(--radius-md);
+}
+
+:host ::ng-deep nz-collapse-panel {
   background: var(--accent);
 
+  /* antd's .ant-collapse > .ant-collapse-item > .ant-collapse-header
+     is (0,3,0) and outranks this rule. */
   .ant-collapse-header {
     color: var(--bg-white) !important;
   }
 }
 
-::ng-deep .ant-collapse {
-  border-radius: 0.75rem;
-  overflow: hidden;
-  border: none;
+/* Layout */
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.filter-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  &--divided {
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+.filter-form__section-title {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Responsive grid without media queries:
+   - (100% - 2 * gap) / 3 caps the layout at 3 columns
+   - max(..., col-min) drops to 2 then 1 as it narrows
+   - min(100%, ...) stops col-min from overflowing on mobile */
+.filter-form__grid {
+  --filter-form-col-min: 12rem;
+  --filter-form-gap-x: var(--space-md);
+
+  display: grid;
+  align-items: start;
+  gap: var(--space-lg) var(--filter-form-gap-x);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(100%, max(var(--filter-form-col-min), (100% - 2 * var(--filter-form-gap-x)) / 3)),
+      1fr
+    )
+  );
 }

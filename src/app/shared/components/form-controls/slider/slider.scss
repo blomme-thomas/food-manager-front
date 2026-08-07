@@ -1,29 +1,23 @@
 /* ============================================
    Slider Component Styles
+   Label rules live in styles.scss under .app-field
    ============================================ */
 
 .slider-container {
   display: flex;
   flex-direction: column;
   gap: 0;
-  max-width: 300px;
-}
-
-.slider-label {
-  display: block;
-  margin-bottom: 0.2rem;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.4;
 }
 
 .slider-wrapper {
-  padding: 0.5rem 0;
+  padding: var(--space-xs) 0;
 }
 
-::ng-deep .ant-slider {
-  margin: 0;
+/* antd handles are absolutely positioned with
+   translateX(-50%), so the track needs a little
+   breathing room or they bleed into the gutter. */
+:host ::ng-deep .ant-slider {
+  margin: 0 var(--space-2xs);
 
   .ant-slider-track {
     background-color: var(--accent);
@@ -34,7 +28,7 @@
     border-color: var(--accent);
 
     &:focus {
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+      box-shadow: var(--shadow-focus);
     }
   }
 
@@ -47,7 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   font-size: 0.875rem;
   color: var(--text-secondary);
 }

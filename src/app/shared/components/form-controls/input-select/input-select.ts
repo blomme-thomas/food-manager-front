@@ -25,6 +25,7 @@ export interface SelectOption {
   templateUrl: './input-select.html',
   styleUrls: ['./input-select.scss'],
   standalone: true,
+  host: { class: 'app-field' },
   imports: [CommonModule, ReactiveFormsModule, NzInputModule, NzFormModule, NzSelectModule],
   providers: [
     {

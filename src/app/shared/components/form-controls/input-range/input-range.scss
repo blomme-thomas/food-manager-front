@@ -1,47 +1,30 @@
 /* ============================================
    Input Range Component Styles
+   Label rules live in styles.scss under .app-field
    ============================================ */
-
-/* Form Item Container */
-::ng-deep nz-form-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* Form Label */
-::ng-deep nz-form-label {
-  display: block;
-  margin-bottom: 0.2rem;
-  width: 100%;
-  text-align: left;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.4;
-  text-align: left !important;
-}
 
 /* Range Input Container */
 .range-input-container {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-xs);
 }
 
 /* Range Inputs Wrapper */
 .range-inputs-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-xs);
 
-  /* Range Input Fields */
+  /* Range Input Fields
+     min-width: 0 lets flex: 1 shrink below the
+     intrinsic content size in a narrow column. */
   .range-input-field {
     flex: 1;
-    max-width: 120px;
-    padding: 0.5rem 1rem;
+    min-width: 0;
+    padding: var(--space-xs) var(--space-md);
     border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
+    border-radius: var(--radius-md);
     color: var(--text-primary);
     background: var(--bg-white);
     font-size: 0.95rem;
@@ -56,7 +39,7 @@
     &:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+      box-shadow: var(--shadow-focus);
     }
 
     &:disabled {
@@ -79,17 +62,9 @@
 
   /* Separator */
   .range-separator {
+    padding: 0 var(--space-2xs);
     color: var(--text-secondary);
     font-weight: 500;
-    padding: 0 0.25rem;
     user-select: none;
-  }
-
-  /* Unit Label */
-  .range-unit {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-    margin-left: 0.25rem;
-    white-space: nowrap;
   }
 }
