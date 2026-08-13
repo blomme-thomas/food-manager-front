@@ -13,12 +13,30 @@
     ></nz-slider>
   </div>
   <div class="slider-values">
-    <span class="slider-value-min">
-      {{ formControl.value ? formControl.value[0] : min }}{{ unit ? ' ' + unit : '' }}
-    </span>
+    <input
+      nz-input
+      type="number"
+      class="app-number-input slider-value-input"
+      [value]="minValue"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [disabled]="disabled"
+      [attr.aria-label]="label"
+      (change)="onMinChange($event)"
+    />
     <span class="slider-separator">-</span>
-    <span class="slider-value-max">
-      {{ formControl.value ? formControl.value[1] : max }}{{ unit ? ' ' + unit : '' }}
-    </span>
+    <input
+      nz-input
+      type="number"
+      class="app-number-input slider-value-input"
+      [value]="maxValue"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [disabled]="disabled"
+      [attr.aria-label]="label"
+      (change)="onMaxChange($event)"
+    />
   </div>
 </div>

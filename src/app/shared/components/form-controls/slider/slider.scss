@@ -1,21 +1,25 @@
 /* ============================================
    Slider Component Styles
-   Label rules live in styles.scss under .app-field
    ============================================ */
 
 .slider-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-columns:
+    minmax(0, var(--slider-label-width, 8rem))
+    minmax(0, 1fr)
+    max-content;
+  align-items: center;
+  column-gap: var(--space-sm);
+}
+
+:host .slider-container nz-form-label {
+  margin-bottom: 0;
 }
 
 .slider-wrapper {
   padding: var(--space-xs) 0;
 }
 
-/* antd handles are absolutely positioned with
-   translateX(-50%), so the track needs a little
-   breathing room or they bleed into the gutter. */
 :host ::ng-deep .ant-slider {
   margin: 0 var(--space-2xs);
 
@@ -40,18 +44,18 @@
 .slider-values {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: var(--space-xs);
   font-size: 0.875rem;
   color: var(--text-secondary);
 }
 
-.slider-value-min,
-.slider-value-max {
-  min-width: 40px;
+.slider-value-input {
+  width: 4.5rem;
+  padding: var(--space-2xs) var(--space-xs);
   text-align: center;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-primary);
 }
 
 .slider-separator {

@@ -39,7 +39,9 @@
       "SUGAR_PER100": "Sugar",
       "SALT_PER100": "Salt",
       "FILTERS": "Filters",
-    "NUTRIENTS_PER100": "Nutrients (per 100 g)"
+      "NUTRIENTS_PER100": "Nutrients (per 100 g)",
+      "APPLY": "Apply",
+      "RESET": "Reset"
     }
   },
   "HEADER": {

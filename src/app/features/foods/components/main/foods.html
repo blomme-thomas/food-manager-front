@@ -1,5 +1,3 @@
 <div class="page">
-  <h1>Aliments</h1>
-  <p>Vous êtes dans le module Aliments.</p>
-  <app-filter-form></app-filter-form>
+  <app-filter-form (filtersApply)="loadFoods($event)"></app-filter-form>
 </div>

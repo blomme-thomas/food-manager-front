@@ -10,7 +10,7 @@
       [value]="minValue || ''"
       (input)="minValue = $event.target.value ? +$event.target.value : null"
       [disabled]="disabled"
-      class="range-input-field"
+      class="app-number-input range-input-field"
     />
     <span class="range-separator">-</span>
     <input
@@ -20,7 +20,7 @@
       [value]="maxValue || ''"
       (input)="maxValue = $event.target.value ? +$event.target.value : null"
       [disabled]="disabled"
-      class="range-input-field"
+      class="app-number-input range-input-field"
     />
   </div>
 </div>

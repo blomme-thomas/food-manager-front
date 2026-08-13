@@ -4,17 +4,7 @@ import { Observable } from 'rxjs';
 import { Category } from '../responses/category.response';
 import { FoodResponse } from '../responses/food.response';
 import { API_ROUTES } from '@core/api/api-routes';
-
-export interface GetFoodsRequest {
-  search?: string;
-  categoryId?: string;
-  nutrients?: {
-    calories?: { min?: number; max?: number };
-    proteins?: { min?: number; max?: number };
-    carbs?: { min?: number; max?: number };
-    fats?: { min?: number; max?: number };
-  };
-}
+import { GetFoodsRequest } from '../requests/get-foods.request';
 
 @Injectable({
   providedIn: 'root',

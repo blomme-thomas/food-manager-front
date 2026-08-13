@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { noop } from 'rxjs';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @Component({
   selector: 'app-slider',
@@ -16,7 +17,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
   styleUrls: ['./slider.scss'],
   standalone: true,
   host: { class: 'app-field' },
-  imports: [ReactiveFormsModule, NzFormModule, CommonModule, NzSliderModule],
+  imports: [ReactiveFormsModule, NzFormModule, CommonModule, NzSliderModule, NzInputModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -37,8 +38,42 @@ export class SliderComponent implements ControlValueAccessor {
   onChange: (value: number[] | null) => void = noop;
   onTouched: () => void = noop;
 
+  get minValue(): number {
+    return this.formControl.value?.[0] ?? this.min;
+  }
+
+  get maxValue(): number {
+    return this.formControl.value?.[1] ?? this.max;
+  }
+
+  onMinChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const next = this.clamp(input.value, this.min, this.maxValue, this.minValue);
+
+    input.value = String(next);
+    this.formControl.setValue([next, this.maxValue]);
+  }
+
+  onMaxChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const next = this.clamp(input.value, this.minValue, this.max, this.maxValue);
+
+    input.value = String(next);
+    this.formControl.setValue([this.minValue, next]);
+  }
+
+  private clamp(raw: string, lower: number, upper: number, current: number): number {
+    const parsed = Number(raw);
+
+    if (raw.trim() === '' || Number.isNaN(parsed)) {
+      return current;
+    }
+
+    return Math.min(Math.max(parsed, lower), upper);
+  }
+
   writeValue(value: number[] | null): void {
-    if (value) {
+    if (value && value !== this.formControl.value) {
       this.formControl.setValue(value, { emitEvent: false });
     }
   }

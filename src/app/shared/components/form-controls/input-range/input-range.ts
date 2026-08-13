@@ -57,7 +57,7 @@ export class InputRangeComponent implements ControlValueAccessor {
   }
 
   writeValue(value: { min: number | null; max: number | null } | null): void {
-    if (value) {
+    if (value && value !== this.formControl.value) {
       this.formControl.setValue(value, { emitEvent: false });
     }
   }

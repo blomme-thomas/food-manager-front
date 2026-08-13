@@ -12,8 +12,6 @@
 :host ::ng-deep nz-collapse-panel {
   background: var(--accent);
 
-  /* antd's .ant-collapse > .ant-collapse-item > .ant-collapse-header
-     is (0,3,0) and outranks this rule. */
   .ant-collapse-header {
     color: var(--bg-white) !important;
   }
@@ -45,10 +43,25 @@
   line-height: 1.4;
 }
 
-/* Responsive grid without media queries:
-   - (100% - 2 * gap) / 3 caps the layout at 3 columns
-   - max(..., col-min) drops to 2 then 1 as it narrows
-   - min(100%, ...) stops col-min from overflowing on mobile */
+.filter-form__calories {
+  max-width: 20rem;
+  margin-bottom: var(--space-lg);
+}
+
+.filter-form__sliders {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.filter-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-color);
+}
+
 .filter-form__grid {
   --filter-form-col-min: 12rem;
   --filter-form-gap-x: var(--space-md);
