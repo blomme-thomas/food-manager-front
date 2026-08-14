@@ -1,11 +1,13 @@
 :host {
   display: block;
-  min-height: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .app-shell {
   display: block;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background:
     radial-gradient(
       circle at 15% 15%,
@@ -21,7 +23,7 @@
 }
 
 .app-layout {
-  min-height: 100vh;
+  height: 100vh;
   background: transparent;
 }
 
@@ -31,7 +33,8 @@
 }
 
 .app-body {
-  min-height: calc(100vh - 4rem);
+  height: calc(100vh - 4rem);
+  overflow: hidden;
   background: transparent;
 }
 
@@ -41,6 +44,8 @@
 }
 
 .app-main {
+  height: 100%;
+  overflow: hidden;
   background: transparent;
 }
 
@@ -65,7 +70,8 @@
   }
 
   .app-body {
-    min-height: auto;
+    height: auto;
+    overflow: visible;
   }
 }
 

@@ -1,0 +1,88 @@
+@if (paginationMode === 'client') {
+  <nz-table
+    #dataTable
+    [nzData]="data"
+    [nzLoading]="loading"
+    [nzFrontPagination]="true"
+    [nzShowPagination]="true"
+    [nzShowSizeChanger]="true"
+    [nzPageSize]="pageSize"
+    [nzPageSizeOptions]="pageSizeOptions"
+    [nzTableLayout]="'fixed'"
+  >
+    <thead>
+      <tr>
+        @for (column of columns; track column.key) {
+          <th [style.text-align]="column.align || 'left'" [style.width]="column.width">
+            {{ column.label | translate }}
+          </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of dataTable.data; track trackByRow($index, row)) {
+        <tr>
+          @for (column of columns; track column.key) {
+            <td
+              [style.text-align]="column.align || 'left'"
+              [style.width]="column.width"
+              [title]="cellValue(row, column)"
+            >
+              {{ cellValue(row, column) }}
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </nz-table>
+} @else {
+  <nz-table
+    [nzData]="data"
+    [nzLoading]="loading"
+    [nzShowPagination]="false"
+    [nzTableLayout]="'fixed'"
+  >
+    <thead>
+      <tr>
+        @for (column of columns; track column.key) {
+          <th [style.text-align]="column.align || 'left'" [style.width]="column.width">
+            {{ column.label | translate }}
+          </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of data; track trackByRow($index, row)) {
+        <tr>
+          @for (column of columns; track column.key) {
+            <td
+              [style.text-align]="column.align || 'left'"
+              [style.width]="column.width"
+              [title]="cellValue(row, column)"
+            >
+              {{ cellValue(row, column) }}
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </nz-table>
+
+  <div class="table-pager">
+    <select class="table-pager__size" [value]="pageSize" (change)="onPageSizeSelect($event)">
+      @for (option of pageSizeOptions; track option) {
+        <option [value]="option">{{ option }}</option>
+      }
+    </select>
+
+    <div class="table-pager__nav">
+      <button nz-button nzType="default" type="button" [disabled]="pageIndex <= 1" (click)="onPreviousPage()">
+        {{ 'TABLE.PREVIOUS' | translate }}
+      </button>
+      <span class="table-pager__page">{{ 'TABLE.PAGE' | translate }} {{ pageIndex }}</span>
+      <button nz-button nzType="primary" type="button" [disabled]="!hasNextPage" (click)="onNextPage()">
+        {{ 'TABLE.NEXT' | translate }}
+      </button>
+    </div>
+  </div>
+}

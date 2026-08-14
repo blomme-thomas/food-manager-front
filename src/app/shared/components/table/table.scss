@@ -1,0 +1,76 @@
+/* ============================================
+   Table Component Styles
+   ============================================ */
+
+:host {
+  display: block;
+}
+
+:host ::ng-deep .ant-table {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ant-table-thead > tr > th {
+    background: var(--accent);
+    color: var(--bg-white);
+    font-weight: 600;
+  }
+}
+
+:host ::ng-deep .ant-pagination {
+  margin-top: var(--space-sm);
+
+  .ant-pagination-item-active {
+    border-color: var(--accent);
+
+    a {
+      color: var(--accent);
+    }
+  }
+
+  .ant-pagination-item:hover a,
+  .ant-select-selector:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+.table-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+}
+
+.table-pager__size {
+  padding: var(--space-2xs) var(--space-xs);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.table-pager__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.table-pager__page {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}

@@ -1,1 +1,17 @@
 /* Styles for foods page component */
+
+.page > * + * {
+  margin-top: var(--space-lg);
+}
+
+.foods__error {
+  max-width: 46ch;
+  margin: var(--space-sm) 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent-error) 18%, transparent);
+  border-radius: 0.75rem;
+  color: var(--accent-error-dark);
+  background: var(--accent-error-light);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

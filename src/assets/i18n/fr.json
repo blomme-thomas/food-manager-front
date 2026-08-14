@@ -44,6 +44,15 @@
       "RESET": "Réinitialiser"
     }
   },
+  "TABLE": {
+    "PREVIOUS": "Précédent",
+    "NEXT": "Suivant",
+    "PAGE": "Page",
+    "FOODS": {
+      "NAME": "Nom",
+      "BASE_UNIT": "Unité"
+    }
+  },
   "HEADER": {
     "MENU": "Ouvrir le menu principal",
     "HOME": "Accueil Food Manager",

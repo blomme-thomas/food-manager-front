@@ -20,3 +20,8 @@ export interface FoodResponse {
   category: Category;
   baseUnit: string;
 }
+
+export interface PaginatedFoodResponse {
+  items: FoodResponse[];
+  total: number;
+}
