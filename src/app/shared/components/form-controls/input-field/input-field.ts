@@ -26,12 +26,27 @@ import { noop } from 'rxjs';
 })
 export class InputFieldComponent<T = string> implements ControlValueAccessor {
   @Input() label: string | null = null;
-  @Input() disabled = false;
   @Input() required = false;
   @Input() placeholder?: string;
   @Input() hint?: string;
   @Input() errorMessage?: string;
   @Input() formControl: FormControl = new FormControl();
+
+  private _disabled = false;
+
+  @Input()
+  set disabled(value: boolean) {
+    this._disabled = value;
+    if (value) {
+      this.formControl?.disable({ emitEvent: false });
+    } else {
+      this.formControl?.enable({ emitEvent: false });
+    }
+  }
+
+  get disabled(): boolean {
+    return this._disabled;
+  }
 
   value: T | null = null;
   isTouched = false;

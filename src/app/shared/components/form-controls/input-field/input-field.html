@@ -6,7 +6,7 @@
     [nzErrorTip]="hasError ? errorText : undefined"
     [nzValidateStatus]="hasError ? 'error' : 'success'"
   >
-    <input nz-input [placeholder]="placeholder" [disabled]="disabled" [formControl]="formControl" />
+    <input nz-input [placeholder]="placeholder" [formControl]="formControl" />
     @if (hint && !hasError) {
       <small class="form-hint form-hint--italic">{{ hint }}</small>
     }
