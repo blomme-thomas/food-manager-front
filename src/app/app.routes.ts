@@ -25,8 +25,7 @@ export const routes: Routes = [
       },
       {
         path: 'aliments',
-        loadChildren: () =>
-          import('@features/aliments/aliments.routes').then((r) => r.ALIMENTS_ROUTES),
+        loadChildren: () => import('@features/foods/foods.routes').then((r) => r.FOODS_ROUTES),
       },
       {
         path: 'recettes',

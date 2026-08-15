@@ -1,0 +1,40 @@
+/* ============================================
+   Input Select Component Styles
+   Label / form-item / hint rules live in
+   styles.scss under .app-field
+   ============================================ */
+
+/* Select Component
+   !important is earned here: antd's
+   .ant-select:not(.ant-select-customize-input) .ant-select-selector
+   is (0,3,0) and outranks this rule. */
+:host ::ng-deep nz-select {
+  width: 100%;
+
+  .ant-select-selector {
+    padding: var(--space-xs) var(--space-md) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    background: var(--bg-white) !important;
+    color: var(--text-primary) !important;
+
+    &:hover {
+      border-color: var(--accent) !important;
+    }
+  }
+
+  /* Host classes, not descendants */
+  &.ant-select-focused .ant-select-selector {
+    border-color: var(--accent) !important;
+    box-shadow: var(--shadow-focus) !important;
+  }
+
+  &.ant-select-disabled .ant-select-selector {
+    cursor: not-allowed !important;
+    background: var(--bg-light) !important;
+  }
+
+  .ant-select-selection-placeholder {
+    color: var(--text-secondary) !important;
+  }
+}

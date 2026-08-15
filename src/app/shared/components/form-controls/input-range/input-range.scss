@@ -1,0 +1,28 @@
+/* ============================================
+   Input Range Component Styles
+   Label rules live in styles.scss under .app-field
+   ============================================ */
+
+.range-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.range-inputs-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+
+  .range-input-field {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .range-separator {
+    padding: 0 var(--space-2xs);
+    color: var(--text-secondary);
+    font-weight: 500;
+    user-select: none;
+  }
+}

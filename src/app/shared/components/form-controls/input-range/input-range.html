@@ -1,0 +1,26 @@
+<div class="range-input-container">
+  <nz-form-label [nzNoColon]="true">
+    {{ label }}
+  </nz-form-label>
+  <div class="range-inputs-wrapper">
+    <input
+      nz-input
+      type="number"
+      placeholder="Min"
+      [value]="minValue || ''"
+      (input)="minValue = $event.target.value ? +$event.target.value : null"
+      [disabled]="disabled"
+      class="app-number-input range-input-field"
+    />
+    <span class="range-separator">-</span>
+    <input
+      nz-input
+      type="number"
+      placeholder="Max"
+      [value]="maxValue || ''"
+      (input)="maxValue = $event.target.value ? +$event.target.value : null"
+      [disabled]="disabled"
+      class="app-number-input range-input-field"
+    />
+  </div>
+</div>

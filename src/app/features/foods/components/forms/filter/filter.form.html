@@ -1,0 +1,70 @@
+<nz-collapse>
+  <nz-collapse-panel [nzHeader]="'FOODS.FORM.FILTERS' | translate" [nzActive]="true">
+    <div class="filter-form">
+      <div class="filter-form__section">
+        <div class="filter-form__grid">
+          <app-input-field
+            [formControl]="filterForm.controls.name"
+            [label]="'FOODS.FORM.FOOD' | translate"
+            [placeholder]="'FOODS.FORM.FOOD_NAME' | translate"
+          ></app-input-field>
+          <app-input-select
+            [formControl]="filterForm.controls.categories"
+            [options]="categoryOptions"
+            [label]="'FOODS.FORM.CATEGORIES' | translate"
+            [placeholder]="'FOODS.FORM.CATEGORIES' | translate"
+            [multiple]="true"
+          ></app-input-select>
+        </div>
+      </div>
+
+      <div class="filter-form__section filter-form__section--divided">
+        <h2 class="filter-form__section-title">
+          {{ 'FOODS.FORM.NUTRIENTS_PER100' | translate }}
+        </h2>
+        <div class="filter-form__calories">
+          <app-input-range
+            [formControl]="filterForm.controls.calories"
+            [label]="'FOODS.FORM.CALORIES_PER100' | translate"
+          ></app-input-range>
+        </div>
+
+        <div class="filter-form__sliders">
+          <app-slider
+            [formControl]="filterForm.controls.proteins"
+            [label]="'FOODS.FORM.PROTEIN_PER100' | translate"
+          ></app-slider>
+          <app-slider
+            [formControl]="filterForm.controls.fats"
+            [label]="'FOODS.FORM.FAT_PER100' | translate"
+          ></app-slider>
+          <app-slider
+            [formControl]="filterForm.controls.carbs"
+            [label]="'FOODS.FORM.CARBS_PER100' | translate"
+          ></app-slider>
+          <app-slider
+            [formControl]="filterForm.controls.fibers"
+            [label]="'FOODS.FORM.FIBER_PER100' | translate"
+          ></app-slider>
+          <app-slider
+            [formControl]="filterForm.controls.sugars"
+            [label]="'FOODS.FORM.SUGAR_PER100' | translate"
+          ></app-slider>
+          <app-slider
+            [formControl]="filterForm.controls.salt"
+            [label]="'FOODS.FORM.SALT_PER100' | translate"
+          ></app-slider>
+        </div>
+      </div>
+
+      <div class="filter-form__actions">
+        <button nz-button nzType="default" type="button" (click)="resetFilters()">
+          {{ 'FOODS.FORM.RESET' | translate }}
+        </button>
+        <button nz-button nzType="primary" type="button" (click)="applyFilters()">
+          {{ 'FOODS.FORM.APPLY' | translate }}
+        </button>
+      </div>
+    </div>
+  </nz-collapse-panel>
+</nz-collapse>

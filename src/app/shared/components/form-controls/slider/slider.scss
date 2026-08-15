@@ -1,0 +1,63 @@
+/* ============================================
+   Slider Component Styles
+   ============================================ */
+
+.slider-container {
+  display: grid;
+  grid-template-columns:
+    minmax(0, var(--slider-label-width, 8rem))
+    minmax(0, 1fr)
+    max-content;
+  align-items: center;
+  column-gap: var(--space-sm);
+}
+
+:host .slider-container nz-form-label {
+  margin-bottom: 0;
+}
+
+.slider-wrapper {
+  padding: var(--space-xs) 0;
+}
+
+:host ::ng-deep .ant-slider {
+  margin: 0 var(--space-2xs);
+
+  .ant-slider-track {
+    background-color: var(--accent);
+  }
+
+  .ant-slider-handle {
+    background-color: var(--accent);
+    border-color: var(--accent);
+
+    &:focus {
+      box-shadow: var(--shadow-focus);
+    }
+  }
+
+  .ant-slider-rail {
+    background-color: var(--bg-light);
+  }
+}
+
+.slider-values {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.slider-value-input {
+  width: 4.5rem;
+  padding: var(--space-2xs) var(--space-xs);
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.slider-separator {
+  color: var(--border-color);
+}

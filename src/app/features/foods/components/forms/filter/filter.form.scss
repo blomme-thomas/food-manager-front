@@ -1,0 +1,79 @@
+/* ============================================
+   Filter Form Styles
+   ============================================ */
+
+/* Collapse Shell */
+:host ::ng-deep .ant-collapse {
+  overflow: hidden;
+  border: none;
+  border-radius: var(--radius-md);
+}
+
+:host ::ng-deep nz-collapse-panel {
+  background: var(--accent);
+
+  .ant-collapse-header {
+    color: var(--bg-white) !important;
+  }
+}
+
+/* Layout */
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.filter-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  &--divided {
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+.filter-form__section-title {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.filter-form__calories {
+  max-width: 20rem;
+  margin-bottom: var(--space-lg);
+}
+
+.filter-form__sliders {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.filter-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+.filter-form__grid {
+  --filter-form-col-min: 12rem;
+  --filter-form-gap-x: var(--space-md);
+
+  display: grid;
+  align-items: start;
+  gap: var(--space-lg) var(--filter-form-gap-x);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(100%, max(var(--filter-form-col-min), (100% - 2 * var(--filter-form-gap-x)) / 3)),
+      1fr
+    )
+  );
+}

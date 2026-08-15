@@ -1,0 +1,20 @@
+<div class="page">
+  <app-filter-form (filtersApply)="loadFoods($event)"></app-filter-form>
+
+  @if (errorMessage(); as message) {
+    <p class="foods__error">{{ message | translate }}</p>
+  }
+
+  <app-table
+    [data]="foods()"
+    [columns]="columns"
+    [loading]="isLoading()"
+    [trackByKey]="'id'"
+    paginationMode="server"
+    [pageIndex]="pageIndex()"
+    [pageSize]="pageSize()"
+    [hasNextPage]="hasNextPage()"
+    (pageIndexChange)="onPageIndexChange($event)"
+    (pageSizeChange)="onPageSizeChange($event)"
+  ></app-table>
+</div>

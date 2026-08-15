@@ -25,6 +25,34 @@
       "MISSING_FIELDS": "All fields are required."
     }
   },
+  "FOODS": {
+    "FORM": {
+      "CATEGORIES": "Categories",
+      "CATEGORY": "Category",
+      "FOOD": "Food",
+      "FOOD_NAME": "Food name",
+      "CALORIES_PER100": "Calories",
+      "PROTEIN_PER100": "Protein",
+      "FAT_PER100": "Fat",
+      "CARBS_PER100": "Carbs",
+      "FIBER_PER100": "Fiber",
+      "SUGAR_PER100": "Sugar",
+      "SALT_PER100": "Salt",
+      "FILTERS": "Filters",
+      "NUTRIENTS_PER100": "Nutrients (per 100 g)",
+      "APPLY": "Apply",
+      "RESET": "Reset"
+    }
+  },
+  "TABLE": {
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "PAGE": "Page",
+    "FOODS": {
+      "NAME": "Name",
+      "BASE_UNIT": "Unit"
+    }
+  },
   "HEADER": {
     "MENU": "Open main menu",
     "HOME": "Food Manager home",

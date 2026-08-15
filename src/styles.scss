@@ -1,1 +1,236 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================
+   GLOBAL VARIABLES & STYLES
+   ============================================ */
+
+/* Color Palette */
+:root {
+  /* Primary Accent (Green) */
+  --accent: #4f7c61;
+  --accent-light: #e7f1ea;
+  --accent-dark: #31543e;
+
+  /* Login Accent (Blue) */
+  --accent-login: #4a7ba7;
+  --accent-login-light: #e8f0f8;
+  --accent-login-dark: #2d4a63;
+
+  /* Error Accent (Red) */
+  --accent-error: #b25d46;
+  --accent-error-light: #f8e9e4;
+  --accent-error-dark: #773a2c;
+
+  /* Text Colors */
+  --text-primary: #1d2922;
+  --text-secondary: #667169;
+  --text-dark: #344039;
+  --text-muted: #7b857f;
+
+  /* Background Colors */
+  --bg-light: #f6f8f6;
+  --bg-white: #ffffff;
+  --bg-light-secondary: #fbfcfb;
+  --bg-light-tertiary: #f4f6f5;
+
+  /* Border Colors */
+  --border-color: #d9e0dc;
+
+  /* Translucent */
+  --white-translucent: rgb(255 255 255 / 92%);
+
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Radius Scale */
+  --radius-md: 0.75rem;
+  --radius-lg: 0.85rem;
+  --radius-xl: 2rem;
+
+  /* Elevation */
+  --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.page {
+  padding: var(--space-lg);
+}
+
+/* ============================================
+   SHARED FORM CONTROLS
+   Owned globally so the four controls under
+   shared/components/form-controls stay in sync.
+   No ::ng-deep here: Angular only strips it from
+   component styles, so in a global sheet the
+   browser would drop the whole rule as invalid.
+   ============================================ */
+
+.app-field {
+  display: block;
+  min-width: 0;
+}
+
+/* Form Item Container */
+.app-field nz-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+/* Form Label */
+.app-field nz-form-label {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--space-2xs);
+  overflow: visible;
+  text-align: left;
+  white-space: normal;
+}
+
+.app-field nz-form-label > label {
+  height: auto;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Form Control */
+.app-field nz-form-control {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+/* Form Hint */
+.app-field .form-hint {
+  display: block;
+  margin-top: var(--space-2xs);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+
+  &--italic {
+    font-style: italic;
+  }
+}
+
+.app-field .app-number-input {
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  background: var(--bg-white);
+  font-size: 0.95rem;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: var(--shadow-focus);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    background: var(--bg-light);
+  }
+
+  /* Remove spinner for number input */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* ============================================
+   MIXINS & REUSABLE PATTERNS
+   ============================================ */
+
+@mixin blur-backdrop {
+  backdrop-filter: blur(12px);
+}
+
+@mixin transition-smooth {
+  transition:
+    background-color 300ms ease,
+    box-shadow 300ms ease,
+    color 160ms ease;
+}
+
+@mixin gradient-bg {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      color-mix(in srgb, var(--accent) 8%, transparent),
+      transparent 35%
+    ),
+    var(--bg-light);
+}
+
+@mixin gradient-bg-login {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      color-mix(in srgb, var(--accent-login) 10%, transparent),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      color-mix(in srgb, var(--accent-login) 8%, transparent),
+      transparent 35%
+    ),
+    var(--bg-light);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card-shadow {
+  box-shadow:
+    0 24px 70px color-mix(in srgb, var(--text-primary) 12%, transparent),
+    0 4px 18px color-mix(in srgb, var(--text-primary) 6%, transparent);
+}
+
+@mixin glass-effect {
+  background: var(--white-translucent);
+  border: 1px solid color-mix(in srgb, var(--text-primary) 8%, transparent);
+  border-radius: 2rem;
+  @include blur-backdrop;
+  @include card-shadow;
+}
+
+/* Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

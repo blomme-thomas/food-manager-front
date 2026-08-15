@@ -10,4 +10,8 @@ export const API_ROUTES = {
     REGISTER: `${API_BASE_URL}/users/register`,
     ME: `${API_BASE_URL}/users/me`,
   },
+  FOODS: {
+    GET: `${API_BASE_URL}/foods`,
+    CATEGORIES: `${API_BASE_URL}/foods/categories`,
+  },
 };

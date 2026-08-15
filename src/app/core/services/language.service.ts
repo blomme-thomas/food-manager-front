@@ -1,6 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { NzI18nService, fr_FR, en_US } from 'ng-zorro-antd/i18n';
+import { BehaviorSubject } from 'rxjs';
 
 export type SupportedLanguage = 'fr' | 'en';
 
@@ -12,7 +14,11 @@ const LANGUAGE_STORAGE_KEY = 'food-manager-language';
 })
 export class LanguageService {
   private readonly translateService = inject(TranslateService);
+  private readonly nzI18nService = inject(NzI18nService);
   private readonly document = inject(DOCUMENT);
+
+  private languageSubject = new BehaviorSubject<SupportedLanguage>(DEFAULT_LANGUAGE);
+  public language$ = this.languageSubject.asObservable();
 
   readonly supportedLanguages: readonly SupportedLanguage[] = ['fr', 'en'];
 
@@ -34,6 +40,8 @@ export class LanguageService {
     this.document.documentElement.lang = language;
 
     this.translateService.use(language);
+    this.nzI18nService.setLocale(language === 'fr' ? fr_FR : en_US);
+    this.languageSubject.next(language);
   }
 
   getCurrentLanguage(): SupportedLanguage {

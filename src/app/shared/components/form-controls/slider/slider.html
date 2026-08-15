@@ -1,0 +1,42 @@
+<div class="slider-container">
+  <nz-form-label [nzNoColon]="true">
+    {{ label }}
+  </nz-form-label>
+  <div class="slider-wrapper">
+    <nz-slider
+      [formControl]="formControl"
+      [nzMin]="min"
+      [nzMax]="max"
+      [nzStep]="step"
+      [nzRange]="true"
+      [nzDisabled]="disabled"
+    ></nz-slider>
+  </div>
+  <div class="slider-values">
+    <input
+      nz-input
+      type="number"
+      class="app-number-input slider-value-input"
+      [value]="minValue"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [disabled]="disabled"
+      [attr.aria-label]="label"
+      (change)="onMinChange($event)"
+    />
+    <span class="slider-separator">-</span>
+    <input
+      nz-input
+      type="number"
+      class="app-number-input slider-value-input"
+      [value]="maxValue"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [disabled]="disabled"
+      [attr.aria-label]="label"
+      (change)="onMaxChange($event)"
+    />
+  </div>
+</div>

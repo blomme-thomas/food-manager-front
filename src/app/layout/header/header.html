@@ -38,12 +38,18 @@
       nzTrigger="hover"
       aria-label="{{ 'HEADER.PROFILE' | translate }}"
     >
-      <nz-avatar nzText="TB" />
+      @if (currentUser$ | async; as user) {
+        <nz-avatar [nzText]="getAvatarText(user.firstName, user.lastName)" />
+      }
 
-      <span class="profile-details">
-        <span class="profile-name">Thomas</span>
-        <span class="profile-role">{{ 'HEADER.ROLE' | translate }}</span>
-      </span>
+      @if (currentUser$ | async; as user) {
+        <span class="profile-details">
+          <span class="profile-name">{{
+            user.displayName || user.firstName + ' ' + user.lastName
+          }}</span>
+          <span class="profile-role">{{ 'HEADER.ROLE' | translate }}</span>
+        </span>
+      }
 
       <nz-icon nzType="down" nzTheme="outline" />
     </a>

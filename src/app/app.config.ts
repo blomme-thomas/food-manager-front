@@ -7,6 +7,7 @@ import { provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@an
 import { provideRouter } from '@angular/router';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideNzI18n, fr_FR } from 'ng-zorro-antd/i18n';
 
 import { routes } from './app.routes';
 import { credentialsInterceptor } from '@core/interceptors/credentials.interceptor';
@@ -26,5 +27,6 @@ export const appConfig: ApplicationConfig = {
       fallbackLang: 'fr',
       lang: 'fr',
     }),
+    provideNzI18n(fr_FR),
   ],
 };
