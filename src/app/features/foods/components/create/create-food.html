@@ -27,47 +27,47 @@
 
   <div class="create-food__grid">
     <app-input-field
-      type="number"
+      [type]="InputFieldType.Number"
       [formControl]="createForm.controls.caloriesPer100"
       [label]="'FOODS.FORM.CALORIES_PER100' | translate"
       [required]="true"
       [errorMessage]="'FOODS.CREATE.ERRORS.OUT_OF_RANGE' | translate: { min: 0, max: 1000 }"
     ></app-input-field>
     <app-input-field
-      type="number"
+      [type]="InputFieldType.Number"
       [formControl]="createForm.controls.proteinsPer100"
       [label]="'FOODS.FORM.PROTEIN_PER100' | translate"
       [required]="true"
       [errorMessage]="'FOODS.CREATE.ERRORS.OUT_OF_RANGE' | translate: { min: 0, max: 100 }"
     ></app-input-field>
     <app-input-field
-      type="number"
+      [type]="InputFieldType.Number"
       [formControl]="createForm.controls.carbsPer100"
       [label]="'FOODS.FORM.CARBS_PER100' | translate"
       [required]="true"
       [errorMessage]="'FOODS.CREATE.ERRORS.OUT_OF_RANGE' | translate: { min: 0, max: 100 }"
     ></app-input-field>
     <app-input-field
-      type="number"
+      [type]="InputFieldType.Number"
       [formControl]="createForm.controls.fatsPer100"
       [label]="'FOODS.FORM.FAT_PER100' | translate"
       [required]="true"
       [errorMessage]="'FOODS.CREATE.ERRORS.OUT_OF_RANGE' | translate: { min: 0, max: 100 }"
     ></app-input-field>
     <app-input-field
-      type="number"
+      [type]="InputFieldType.Number"
       [formControl]="createForm.controls.fibersPer100"
       [label]="'FOODS.FORM.FIBER_PER100' | translate"
       [errorMessage]="'FOODS.CREATE.ERRORS.OUT_OF_RANGE' | translate: { min: 0, max: 100 }"
     ></app-input-field>
     <app-input-field
-      type="number"
+      [type]="InputFieldType.Number"
       [formControl]="createForm.controls.sugarsPer100"
       [label]="'FOODS.FORM.SUGAR_PER100' | translate"
       [errorMessage]="'FOODS.CREATE.ERRORS.OUT_OF_RANGE' | translate: { min: 0, max: 100 }"
     ></app-input-field>
     <app-input-field
-      type="number"
+      [type]="InputFieldType.Number"
       [formControl]="createForm.controls.saltPer100"
       [label]="'FOODS.FORM.SALT_PER100' | translate"
       [errorMessage]="'FOODS.CREATE.ERRORS.OUT_OF_RANGE' | translate: { min: 0, max: 100 }"

@@ -11,6 +11,7 @@ import { CreateFoodRequest } from '@core/api/requests/create-food.request';
 import { FoodService } from '@core/api/services/food.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { InputFieldComponent } from '@shared/components/form-controls/input-field/input-field';
+import { InputFieldType } from '@shared/components/form-controls/input-field/input-field.model';
 import {
   InputSelectComponent,
   SelectOption,
@@ -68,6 +69,13 @@ export class CreateFoodComponent implements OnInit {
   public readonly submitted = signal(false);
 
   public readonly createForm: FormGroup<CreateFoodFormControls> = this.buildForm();
+
+  // Getter, not a field: a same-named field initializer here resolves to
+  // undefined at runtime once the class also uses inject() (build/bundler
+  // ordering quirk), silently breaking the template's InputFieldType.* refs.
+  protected get InputFieldType(): typeof InputFieldType {
+    return InputFieldType;
+  }
 
   public ngOnInit(): void {
     this.foodService

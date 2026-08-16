@@ -6,7 +6,7 @@
     [nzErrorTip]="hasError ? errorText : undefined"
     [nzValidateStatus]="hasError ? 'error' : 'success'"
   >
-    @if (type === 'number') {
+    @if (type === InputFieldType.Number) {
       <input nz-input type="number" [placeholder]="placeholder" [formControl]="formControl" />
     } @else {
       <input nz-input type="text" [placeholder]="placeholder" [formControl]="formControl" />
