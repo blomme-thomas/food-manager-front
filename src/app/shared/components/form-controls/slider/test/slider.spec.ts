@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { SliderComponent } from './slider';
+import { SliderComponent } from '../slider';
 
 describe('SliderComponent', () => {
   let component: SliderComponent;

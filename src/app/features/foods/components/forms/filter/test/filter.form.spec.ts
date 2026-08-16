@@ -5,7 +5,7 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { FilterFormComponent } from './filter.form';
+import { FilterFormComponent } from '../filter.form';
 
 describe('FilterFormComponent', () => {
   let component: FilterFormComponent;

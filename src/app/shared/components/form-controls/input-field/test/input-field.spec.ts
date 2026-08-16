@@ -3,7 +3,8 @@ import { FormControl } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { InputFieldComponent } from './input-field';
+import { InputFieldComponent } from '../input-field';
+import { InputFieldType } from '../input-field.model';
 
 describe('InputFieldComponent', () => {
   beforeEach(async () => {
@@ -47,7 +48,7 @@ describe('InputFieldComponent', () => {
   it('should hold a numeric FormControl value when type is number and the user types a value', () => {
     const fixture = TestBed.createComponent(InputFieldComponent<number>);
     const formControl = new FormControl<number | null>(null);
-    fixture.componentInstance.type = 'number';
+    fixture.componentInstance.type = InputFieldType.Number;
     fixture.componentInstance.formControl = formControl;
     fixture.detectChanges();
 

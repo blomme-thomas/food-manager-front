@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { provideTranslateService } from '@ngx-translate/core';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { TableColumn, TableComponent } from './table';
+import { TableColumn, TableComponent } from '../table';
 
 interface Row {
   id: string;

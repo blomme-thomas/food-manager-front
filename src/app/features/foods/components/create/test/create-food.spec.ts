@@ -5,7 +5,7 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { Subject, of, throwError } from 'rxjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { CreateFoodComponent } from './create-food';
+import { CreateFoodComponent } from '../create-food';
 
 interface CreateFoodFormValue {
   name: { FR: string | null; EN: string | null };

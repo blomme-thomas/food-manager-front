@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { provideRouter } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ForbiddenComponent } from './forbidden';
-import { MockTranslateService } from '../../../testing/mock-translate.service';
+import { ForbiddenComponent } from '../forbidden';
+import { MockTranslateService } from '../../../../testing/mock-translate.service';
 
 @Pipe({ name: 'translate', standalone: true })
 class MockTranslatePipe implements PipeTransform {
@@ -21,7 +21,7 @@ describe('ForbiddenComponent', () => {
       providers: [provideRouter([]), { provide: TranslateService, useClass: MockTranslateService }],
     }).compileComponents();
 
-    const mod = await import('../error-page/error-page');
+    const mod = await import('../../error-page/error-page');
     TestBed.overrideComponent(mod.ErrorPageComponent as unknown as typeof mod.ErrorPageComponent, {
       set: { imports: [CommonModule, RouterModule, MockTranslatePipe] },
     });

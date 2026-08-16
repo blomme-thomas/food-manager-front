@@ -1,7 +1,7 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { describe, expect, it } from 'vitest';
 
-import { atLeastOneNameValidator } from './create-food.validators';
+import { atLeastOneNameValidator } from '../create-food.validators';
 
 function buildGroup(fr: string | null, en: string | null): FormGroup {
   return new FormGroup(

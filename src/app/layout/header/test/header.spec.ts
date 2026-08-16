@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
-import { Shell } from './shell';
+import { Header } from '../header';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '@core/api/services/user.service';
-import { MockTranslateService } from '../../testing/mock-translate.service';
-import { MockUserService } from '../../testing/mock-user.service';
+import { MockTranslateService } from '../../../testing/mock-translate.service';
+import { MockUserService } from '../../../testing/mock-user.service';
 
-describe('Shell', () => {
-  let component: Shell;
-  let fixture: ComponentFixture<Shell>;
+describe('Header', () => {
+  let component: Header;
+  let fixture: ComponentFixture<Header>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Shell],
+      imports: [Header],
       providers: [
         provideRouter([]),
         { provide: TranslateService, useClass: MockTranslateService },
@@ -21,7 +21,7 @@ describe('Shell', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Shell);
+    fixture = TestBed.createComponent(Header);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

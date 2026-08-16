@@ -6,7 +6,7 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { Subject, throwError } from 'rxjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { Login } from './login';
+import { Login } from '../login';
 
 describe('Login', () => {
   let component: Login;

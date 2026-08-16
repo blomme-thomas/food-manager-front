@@ -8,7 +8,7 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { Observable, of, Subject, throwError } from 'rxjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { FoodsComponent } from './foods';
+import { FoodsComponent } from '../foods';
 
 function paginatedResponse(items: FoodResponse[], total = items.length): PaginatedFoodResponse {
   return { items, total };
