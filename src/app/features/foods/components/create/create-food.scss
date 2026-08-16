@@ -1,0 +1,45 @@
+/* ============================================
+   Create Food Form Styles
+   ============================================ */
+
+.create-food {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.create-food__grid {
+  --create-food-col-min: 12rem;
+  --create-food-gap-x: var(--space-md);
+
+  display: grid;
+  align-items: start;
+  gap: var(--space-lg) var(--create-food-gap-x);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(100%, max(var(--create-food-col-min), (100% - 2 * var(--create-food-gap-x)) / 3)),
+      1fr
+    )
+  );
+}
+
+.create-food__error {
+  max-width: 46ch;
+  margin: var(--space-sm) 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent-error) 18%, transparent);
+  border-radius: 0.75rem;
+  color: var(--accent-error-dark);
+  background: var(--accent-error-light);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.create-food__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-color);
+}

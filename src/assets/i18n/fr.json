@@ -42,6 +42,18 @@
       "NUTRIENTS_PER100": "Nutriments (pour 100 g)",
       "APPLY": "Appliquer",
       "RESET": "Réinitialiser"
+    },
+    "CREATE": {
+      "BUTTON": "Créer",
+      "TITLE": "Créer un aliment",
+      "NAME_FR": "Nom (FR)",
+      "NAME_EN": "Nom (EN)",
+      "UNIT": "Unité",
+      "SUBMIT": "Créer",
+      "ERRORS": {
+        "NAME_REQUIRED": "Un nom en français ou en anglais est requis",
+        "OUT_OF_RANGE": "La valeur doit être comprise entre {{ min }} et {{ max }}"
+      }
     }
   },
   "TABLE": {
@@ -65,7 +77,7 @@
   },
   "SIDEBAR": {
     "DASHBOARD": "Tableau de bord",
-    "ALIMENTS": "Aliments",
+    "FOODS": "Aliments",
     "RECETTES": "Recettes",
     "PLANNING": "Planification"
   },

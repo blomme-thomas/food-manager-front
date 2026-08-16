@@ -1,4 +1,30 @@
 <div class="page">
+  @if ((currentUser$ | async)?.role === 'ADMIN') {
+    <button
+      nz-button
+      nzType="primary"
+      nzShape="circle"
+      nzSize="large"
+      class="foods__create-fab"
+      [attr.aria-label]="'FOODS.CREATE.BUTTON' | translate"
+      [title]="'FOODS.CREATE.BUTTON' | translate"
+      (click)="openCreateModal()"
+    >
+      <span class="foods__create-fab-icon">+</span>
+    </button>
+  }
+
+  <nz-modal
+    [(nzVisible)]="isCreateModalVisible"
+    [nzTitle]="'FOODS.CREATE.TITLE' | translate"
+    [nzFooter]="null"
+    (nzOnCancel)="isCreateModalVisible.set(false)"
+  >
+    <ng-container *nzModalContent>
+      <app-create-food (created)="onFoodCreated()"></app-create-food>
+    </ng-container>
+  </nz-modal>
+
   <app-filter-form (filtersApply)="loadFoods($event)"></app-filter-form>
 
   @if (errorMessage(); as message) {

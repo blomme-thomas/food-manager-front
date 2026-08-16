@@ -24,7 +24,7 @@ export const routes: Routes = [
           import('@features/dashboard/dashboard.routes').then((r) => r.DASHBOARD_ROUTES),
       },
       {
-        path: 'aliments',
+        path: 'foods',
         loadChildren: () => import('@features/foods/foods.routes').then((r) => r.FOODS_ROUTES),
       },
       {

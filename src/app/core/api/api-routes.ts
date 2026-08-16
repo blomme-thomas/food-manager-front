@@ -11,7 +11,9 @@ export const API_ROUTES = {
     ME: `${API_BASE_URL}/users/me`,
   },
   FOODS: {
-    GET: `${API_BASE_URL}/foods`,
+    SEARCH: `${API_BASE_URL}/foods/search`,
+    CREATE: `${API_BASE_URL}/foods`,
+    UNITS: `${API_BASE_URL}/foods/units`,
     CATEGORIES: `${API_BASE_URL}/foods/categories`,
   },
 };

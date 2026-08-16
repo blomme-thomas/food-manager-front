@@ -30,6 +30,7 @@ export class InputFieldComponent<T = string> implements ControlValueAccessor {
   @Input() placeholder?: string;
   @Input() hint?: string;
   @Input() errorMessage?: string;
+  @Input() type = 'text';
   @Input() formControl: FormControl = new FormControl();
 
   private _disabled = false;

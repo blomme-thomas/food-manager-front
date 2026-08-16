@@ -7,13 +7,18 @@ import {
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AsyncPipe } from '@angular/common';
 import { GetFoodsRequest } from '@core/api/requests/get-foods.request';
 import { FoodResponse, PaginatedFoodResponse } from '@core/api/responses/food.response';
 import { FoodService } from '@core/api/services/food.service';
+import { UserService } from '@core/api/services/user.service';
 import { LanguageService } from '@core/services/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 import { finalize } from 'rxjs';
 import { FilterFormComponent } from '../forms/filter/filter.form';
+import { CreateFoodComponent } from '../create/create-food';
 import { TableComponent } from '@shared/components/table/table';
 import { createFoodTableColumns } from '../../config/food-table.columns';
 
@@ -24,17 +29,28 @@ const DEFAULT_PAGE_SIZE = 10;
   selector: 'app-foods',
   templateUrl: './foods.html',
   styleUrls: ['./foods.scss'],
-  imports: [FilterFormComponent, TableComponent, TranslatePipe],
+  imports: [
+    FilterFormComponent,
+    TableComponent,
+    TranslatePipe,
+    AsyncPipe,
+    NzButtonModule,
+    NzModalModule,
+    CreateFoodComponent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FoodsComponent implements OnInit {
   private readonly foodService = inject(FoodService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly languageService = inject(LanguageService);
+  private readonly userService = inject(UserService);
 
   private currentFilters: GetFoodsRequest = {};
 
   public readonly columns = createFoodTableColumns(this.languageService);
+
+  public readonly currentUser$ = this.userService.currentUser$;
 
   public readonly foods = signal<FoodResponse[]>([]);
   public readonly isLoading = signal(false);
@@ -43,9 +59,19 @@ export class FoodsComponent implements OnInit {
   public readonly pageSize = signal(DEFAULT_PAGE_SIZE);
   public readonly total = signal(0);
   public readonly hasNextPage = signal(false);
+  public readonly isCreateModalVisible = signal(false);
 
   public ngOnInit(): void {
     this.loadFoods({});
+  }
+
+  public openCreateModal(): void {
+    this.isCreateModalVisible.set(true);
+  }
+
+  public onFoodCreated(): void {
+    this.isCreateModalVisible.set(false);
+    this.fetchFoods();
   }
 
   public loadFoods(request: GetFoodsRequest): void {

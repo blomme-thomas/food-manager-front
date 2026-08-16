@@ -26,11 +26,13 @@ describe('TableComponent', () => {
       .map((element) => (element.nativeElement as HTMLElement).textContent?.trim() ?? '');
 
   const rowTexts = (): string[][] =>
-    fixture.debugElement.queryAll(By.css('tbody tr:not(.ant-table-placeholder)')).map((row) =>
-      row
-        .queryAll(By.css('td'))
-        .map((cell) => (cell.nativeElement as HTMLElement).textContent?.trim() ?? ''),
-    );
+    fixture.debugElement
+      .queryAll(By.css('tbody tr:not(.ant-table-placeholder)'))
+      .map((row) =>
+        row
+          .queryAll(By.css('td'))
+          .map((cell) => (cell.nativeElement as HTMLElement).textContent?.trim() ?? ''),
+      );
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
