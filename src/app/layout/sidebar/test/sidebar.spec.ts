@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { Sidebar } from './sidebar';
+import { Sidebar } from '../sidebar';
 import { TranslateService } from '@ngx-translate/core';
-import { MockTranslateService } from '../../testing/mock-translate.service';
+import { MockTranslateService } from '../../../testing/mock-translate.service';
 
 describe('Sidebar', () => {
   let component: Sidebar;

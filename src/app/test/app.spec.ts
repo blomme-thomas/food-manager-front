@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
-import { App } from './app';
+import { App } from '../app';
 import { TranslateService } from '@ngx-translate/core';
-import { MockTranslateService } from './testing/mock-translate.service';
+import { MockTranslateService } from '../testing/mock-translate.service';
 
 describe('App', () => {
   let fixture: ComponentFixture<App>;

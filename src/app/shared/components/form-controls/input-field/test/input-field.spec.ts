@@ -3,7 +3,8 @@ import { FormControl } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { InputFieldComponent } from './input-field';
+import { InputFieldComponent } from '../input-field';
+import { InputFieldType } from '../input-field.model';
 
 describe('InputFieldComponent', () => {
   beforeEach(async () => {
@@ -42,5 +43,23 @@ describe('InputFieldComponent', () => {
     const input = fixture.debugElement.query(By.css('input')).nativeElement as HTMLInputElement;
 
     expect(input.disabled).toBe(false);
+  });
+
+  it('should hold a numeric FormControl value when type is number and the user types a value', () => {
+    const fixture = TestBed.createComponent(InputFieldComponent<number>);
+    const formControl = new FormControl<number | null>(null);
+    fixture.componentInstance.type = InputFieldType.Number;
+    fixture.componentInstance.formControl = formControl;
+    fixture.detectChanges();
+
+    const input = fixture.debugElement.query(By.css('input')).nativeElement as HTMLInputElement;
+    expect(input.type).toBe('number');
+
+    input.value = '42';
+    input.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    expect(formControl.value).toBe(42);
+    expect(typeof formControl.value).toBe('number');
   });
 });

@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Footer } from './footer';
+import { Footer } from '../footer';
 import { TranslateService } from '@ngx-translate/core';
-import { MockTranslateService } from '../../testing/mock-translate.service';
+import { MockTranslateService } from '../../../testing/mock-translate.service';
 
 describe('Footer', () => {
   let component: Footer;

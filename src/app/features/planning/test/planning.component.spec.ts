@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { DashboardComponent } from './dashboard.component';
+import { PlanningComponent } from '../planning.component';
 
-describe('DashboardComponent', () => {
+describe('PlanningComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardComponent],
+      imports: [PlanningComponent],
     }).compileComponents();
   });
 
   it('should create the component', () => {
-    const fixture = TestBed.createComponent(DashboardComponent);
+    const fixture = TestBed.createComponent(PlanningComponent);
     const comp = fixture.componentInstance;
     expect(comp).toBeTruthy();
   });

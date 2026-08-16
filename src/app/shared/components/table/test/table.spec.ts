@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { provideTranslateService } from '@ngx-translate/core';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { TableColumn, TableComponent } from './table';
+import { TableColumn, TableComponent } from '../table';
 
 interface Row {
   id: string;
@@ -26,11 +26,13 @@ describe('TableComponent', () => {
       .map((element) => (element.nativeElement as HTMLElement).textContent?.trim() ?? '');
 
   const rowTexts = (): string[][] =>
-    fixture.debugElement.queryAll(By.css('tbody tr:not(.ant-table-placeholder)')).map((row) =>
-      row
-        .queryAll(By.css('td'))
-        .map((cell) => (cell.nativeElement as HTMLElement).textContent?.trim() ?? ''),
-    );
+    fixture.debugElement
+      .queryAll(By.css('tbody tr:not(.ant-table-placeholder)'))
+      .map((row) =>
+        row
+          .queryAll(By.css('td'))
+          .map((cell) => (cell.nativeElement as HTMLElement).textContent?.trim() ?? ''),
+      );
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

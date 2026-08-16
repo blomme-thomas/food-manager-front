@@ -6,7 +6,11 @@
     [nzErrorTip]="hasError ? errorText : undefined"
     [nzValidateStatus]="hasError ? 'error' : 'success'"
   >
-    <input nz-input [placeholder]="placeholder" [formControl]="formControl" />
+    @if (type === InputFieldType.Number) {
+      <input nz-input type="number" [placeholder]="placeholder" [formControl]="formControl" />
+    } @else {
+      <input nz-input type="text" [placeholder]="placeholder" [formControl]="formControl" />
+    }
     @if (hint && !hasError) {
       <small class="form-hint form-hint--italic">{{ hint }}</small>
     }

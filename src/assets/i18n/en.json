@@ -42,6 +42,18 @@
       "NUTRIENTS_PER100": "Nutrients (per 100 g)",
       "APPLY": "Apply",
       "RESET": "Reset"
+    },
+    "CREATE": {
+      "BUTTON": "Create",
+      "TITLE": "Create a food",
+      "NAME_FR": "Name (FR)",
+      "NAME_EN": "Name (EN)",
+      "UNIT": "Unit",
+      "SUBMIT": "Create",
+      "ERRORS": {
+        "NAME_REQUIRED": "A name in French or English is required",
+        "OUT_OF_RANGE": "The value must be between {{ min }} and {{ max }}"
+      }
     }
   },
   "TABLE": {
@@ -65,7 +77,7 @@
   },
   "SIDEBAR": {
     "DASHBOARD": "Dashboard",
-    "ALIMENTS": "Food items",
+    "FOODS": "Food items",
     "RECETTES": "Recipes",
     "PLANNING": "Planning"
   },

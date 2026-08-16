@@ -4,7 +4,7 @@ import { AuthFacadeService } from '@core/auth/services/auth-facade.service';
 import { provideTranslateService } from '@ngx-translate/core';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { Register } from './register';
+import { Register } from '../register';
 
 describe('Register', () => {
   let component: Register;

@@ -2,7 +2,9 @@ import { FoodResponse } from '@core/api/responses/food.response';
 import { LanguageService } from '@core/services/language.service';
 import { TableColumn } from '@shared/components/table/table';
 
-export function createFoodTableColumns(languageService: LanguageService): TableColumn<FoodResponse>[] {
+export function createFoodTableColumns(
+  languageService: LanguageService,
+): TableColumn<FoodResponse>[] {
   const lang = (): 'EN' | 'FR' => (languageService.getCurrentLanguage() === 'fr' ? 'FR' : 'EN');
 
   return [

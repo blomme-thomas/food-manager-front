@@ -8,6 +8,7 @@ import {
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { noop } from 'rxjs';
+import { InputFieldType } from './input-field.model';
 
 @Component({
   selector: 'app-input-field',
@@ -30,7 +31,10 @@ export class InputFieldComponent<T = string> implements ControlValueAccessor {
   @Input() placeholder?: string;
   @Input() hint?: string;
   @Input() errorMessage?: string;
+  @Input() type: InputFieldType = InputFieldType.Text;
   @Input() formControl: FormControl = new FormControl();
+
+  protected readonly InputFieldType = InputFieldType;
 
   private _disabled = false;
 

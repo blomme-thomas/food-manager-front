@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { provideRouter } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorPageComponent } from './error-page';
-import { MockTranslateService } from '../../../testing/mock-translate.service';
+import { ErrorPageComponent } from '../error-page';
+import { MockTranslateService } from '../../../../testing/mock-translate.service';
 
 @Pipe({ name: 'translate', standalone: true })
 class MockTranslatePipe implements PipeTransform {

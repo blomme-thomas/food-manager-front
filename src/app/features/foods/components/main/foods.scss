@@ -4,6 +4,19 @@
   margin-top: var(--space-lg);
 }
 
+.foods__create-fab {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.foods__create-fab-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 .foods__error {
   max-width: 46ch;
   margin: var(--space-sm) 0;
