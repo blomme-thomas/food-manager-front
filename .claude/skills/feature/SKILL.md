@@ -65,8 +65,8 @@ code (`US-FOOD-*`, `TS-*`).
    the unresolved failures to the user instead of continuing to loop.
 
 6. **Review.**
-   Call **reviewer** on the current diff — it always runs lint, format
-   check, and the relevant tests itself as part of the review, and
+   Call **reviewer** on the current diff — it always runs lint, auto-formats
+   the diff, and runs the relevant tests itself as part of the review, and
    returns findings pre-split into a FOR DEVELOPER list (production code)
    and a FOR TEST-WRITER list (spec files). Route each list to its owner:
    CRITICAL/IMPORTANT items from FOR DEVELOPER go to **developer**;
@@ -84,6 +84,14 @@ code (`US-FOOD-*`, `TS-*`).
    git's own rules, it will not push or open a PR without this). State the
    plan — branch, commit(s), PR title/base (`develop`) — then call **git**
    to push and open the PR.
+
+9. **Post-merge cleanup.**
+   Once the user confirms the PR has been merged, call **git** to switch
+   back to `develop`, pull it up to date (picking up the merge), and clean
+   up the now-merged feature branch: delete it locally, and delete the
+   remote branch too if GitHub didn't already auto-delete it on merge. Do
+   not attempt this before the user confirms the merge — the PR may still
+   be under review or awaiting changes.
 
 ## Rules
 
